@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(version: 20150517160506) do
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id"
 
   create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,6 +66,9 @@ ActiveRecord::Schema.define(version: 20150517160506) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.string   "link",       null: false
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -73,10 +79,13 @@ ActiveRecord::Schema.define(version: 20150517160506) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "username",                    null: false
+    t.string   "password_digest",             null: false
+    t.text     "credentials"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "sash_id"
-    t.integer  "level",      default: 0
+    t.integer  "level",           default: 0
   end
 
   create_table "votes", force: :cascade do |t|
