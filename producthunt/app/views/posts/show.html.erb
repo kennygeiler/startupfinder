@@ -1,1 +1,8 @@
 <h2>Post: <%= @post.id %></h2>
+
+<% @post.feedbacks.each do |feedback| %>
+  Question: <%= feedback.question %> <br>
+<% end %>
+<br>
+
+<%= link_to "Add new Feedback Question", new_post_feedback_path(@post) %>
