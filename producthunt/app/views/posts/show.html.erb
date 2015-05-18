@@ -2,6 +2,10 @@
 
 <% @post.feedbacks.each do |feedback| %>
   Question: <%= feedback.question %> <br>
+  <% feedback.comments.each do |comment| %>
+    Comment: <%= comment.content %> <br>
+  <% end %>
+   <%= link_to "New comment", new_post_feedback_comment_path(@post, feedback) %> <br>
 <% end %>
 <br>
 
