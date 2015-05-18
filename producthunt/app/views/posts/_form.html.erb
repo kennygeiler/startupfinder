@@ -1,6 +1,5 @@
 <% if post.staff_pick %>
   <div class="staff-pick-post">
-    <h2>Staff Picks</h2>
     <div class='post'>
       <h3> <%= post.title %> </h3>
       <p> <%= post.link %> </p>
@@ -16,7 +15,6 @@
   </div>
 <% else %>
   <div class="not-staff-pick-post">
-    <h2>Top Voted Posts</h2>
     <div class='post'>
       <h3> <%= post.title %> </h3>
       <p> <%= post.link %> </p>
