@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
 
   def new
-    @post = Post.new
+    if current_user = nil
+      redirect_to login_path
+    else
+      @post = Post.new
+    end
   end
 
   def create
@@ -20,10 +24,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     #this will be the feedback area
-  end
-
-  def destroy
-
   end
 
   private
