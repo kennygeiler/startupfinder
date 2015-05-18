@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
     #this will be the feedback area
   end
 
