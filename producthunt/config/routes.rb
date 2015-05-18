@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'users/new'
-
+  root 'posts#index'
   get 'sessions/new'
   get    'signup'  => 'users#new'
   get    'login'   => 'sessions#new'
