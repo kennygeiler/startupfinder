@@ -1,0 +1,5 @@
+<%= form_for @feedback do |f| %>
+  Question: <%= f.text_field :question %><br />
+  <%= f.hidden_field :post_id, :value => post.id %>
+  <%= f.submit %>
+<% end %>
