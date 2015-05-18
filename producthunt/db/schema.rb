@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150517160506) do
     t.string   "title",                      null: false
     t.string   "link",                       null: false
     t.boolean  "hiring",     default: false
+    t.boolean  "staff_pick", default: false
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
