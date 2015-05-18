@@ -1,3 +1,10 @@
 <h3> <%= post.title %> </h3>
 <p> <%= post.link %> </p>
+<p>
+  <% if post.hiring %>
+    hiring!
+  <% else %>
+    not hiring
+  <% end %>
+</p>
 <p> <%= post.user.username %></p>
