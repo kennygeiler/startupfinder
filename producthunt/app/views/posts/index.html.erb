@@ -1,0 +1,11 @@
+
+<div class='post-headers'>
+  <h2 id="staff-pick-header">Staff Picks</h2>
+  <h2 id="regular-post-header">Regular Posts</h2>
+</div>
+
+<% @posts.each do |post| %>
+  <%= render partial: "posts/form", locals: {post: post} %>
+<% end %>
+
+

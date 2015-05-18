@@ -1,0 +1,9 @@
+<h2>Submit your Startup</h2>
+
+<%= form_for @post do |f| %>
+  Title: <%= f.text_field :title %><br />
+  Link: <%= f.text_field :link %><br />
+  Hiring? <%= f.check_box :hiring, {}, 'true', 'false' %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.submit %>
+<% end %>
