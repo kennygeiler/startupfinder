@@ -1,3 +1,36 @@
-<h3> <%= post.title %> </h3>
-<p> <%= post.link %> </p>
-<p> <%= post.user.username %></p>
+<% if post.staff_pick %>
+  <div class="staff-pick-post">
+    <div class='post'>
+      <h3> <%= post.title %> </h3>
+      <p> <%= post.link %> </p>
+      <p>
+        <% if post.hiring %>
+          hiring!
+        <% else %>
+          not hiring
+        <% end %>
+      </p>
+      <p> <%= post.user.username %></p>
+      <%= link_to "Post", post_path(post) %>
+    </div>
+  </div>
+<% else %>
+  <div class="not-staff-pick-post">
+    <div class='post'>
+      <h3> <%= post.title %> </h3>
+      <p> <%= post.link %> </p>
+      <p>
+        <% if post.hiring %>
+          hiring!
+        <% else %>
+          not hiring
+        <% end %>
+      </p>
+      <p> <%= post.user.username %></p>
+      <%= link_to "Post", post_path(post) %>
+    </div>
+  </div>
+<% end %>
+
+
+
