@@ -5,9 +5,21 @@
 .not-staff-pick-post {
   float: right;
   margin-top: 50px;
+  clear: right;
 }
 
 .staff-pick-post {
   margin-top: 50px;
   float: left;
+  clear: left;
+}
+
+#staff-post-header {
+  float: left;
+  clear: left;
+}
+
+#regular-post-header {
+  float: right;
+  clear: top;
 }
