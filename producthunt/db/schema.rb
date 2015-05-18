@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(version: 20150517160506) do
   add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id"
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id"
 
-  create_table "comments", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "post_id"
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "merit_actions", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "action_method"
