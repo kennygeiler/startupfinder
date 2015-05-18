@@ -1,7 +1,7 @@
 <h2>Submit your Startup</h2>
 
-<%= form_for posts_path do |f| %>
-  Title: <%= f.text_field 'post[title]' %><br />
-  Link: <%= f.text_field 'post[link]' %><br />
+<%= form_for @post do |f| %>
+  Title: <%= f.text_field :title %><br />
+  Link: <%= f.text_field :link %><br />
   <%= f.submit %>
 <% end %>
