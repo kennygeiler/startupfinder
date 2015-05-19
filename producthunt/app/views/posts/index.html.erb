@@ -1,11 +1,50 @@
-
-<div class='post-headers'>
-  <h2 id="staff-pick-header">Staff Picks</h2>
-  <h2 id="regular-post-header">Regular Posts</h2>
+<div class="units-row units-padding">
+    <div class="unit-50" id="left-header">
+      <h2 class="root-header">Staff Picks</h2>
+      <% @posts.each do |post| %>
+        <% if post.staff_pick %>
+        <div class="single-line-post">
+          <h3> <%= post.title %> </h3>
+          <p> <%= post.link %> </p>
+          <p>
+            <% if post.hiring %>
+              hiring!
+            <% else %>
+              not hiring
+            <% end %>
+          </p>
+          <p> <%= post.user.username %></p>
+          Votes: <%= post.score %>
+          <%= link_to "upvote", like_post_path(post), method: :put %>
+          <%= link_to "Post", post_path(post) %>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="unit-50" id="right-header">
+      <h2 class="root-header">Regular Posts</h2>
+      <% @posts.each do |post| %>
+        <% if !post.staff_pick %>
+        <div class="single-line-post">
+          <h3> <%= post.title %> </h3>
+          <p> <%= post.link %> </p>
+          <p>
+            <% if post.hiring %>
+              hiring!
+            <% else %>
+              not hiring
+            <% end %>
+          </p>
+          <p> <%= post.user.username %></p>
+          Votes: <%= post.score %>
+          <%= link_to "upvote", like_post_path(post), method: :put %>
+          <%= link_to "Post", post_path(post) %>
+        </div>
+          <% end %>
+      <% end %>
+    </div>
 </div>
 
-<% @posts.each do |post| %>
-  <%= render partial: "posts/form", locals: {post: post} %>
-<% end %>
+
 
 

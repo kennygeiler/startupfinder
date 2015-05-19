@@ -7,16 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to "Home", root_path %>
-  <% if current_user %>
-    <%= link_to "Profile", user_path(current_user) %>
-    <%= link_to "Log out", logout_path, :method => :delete %>
-    <%= link_to "Submit Startup", new_post_path %>
-  <% else %>
-    <%= link_to "Signin", login_path %>
-    <%= link_to "Signup", signup_path %>
-  <% end %>
-
+<nav class="navbar navbar-pills">
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+      <% if current_user %>
+        <li><%= link_to "Profile", user_path(current_user) %></li>
+        <li><%= link_to "Submit Startup", new_post_path %></li>
+        <li><%= link_to "Log out", logout_path, :method => :delete %></li>
+      <% else %>
+        <li><%= link_to "Signin", login_path %></li>
+        <li><%= link_to "Signup", signup_path %></li>
+      <% end %>
+    </ul>
+</nav>
 
 <%= yield %>
 
