@@ -32,8 +32,13 @@ class PostsController < ApplicationController
       redirect_to posts_path
     else
       @post.upvote_by current_user
-      @post.user.increase_karma
-      redirect_to posts_path
+      if current_user.id == @post.user_id
+        @post.user.increase_karma(10)
+        redirect_to posts_path
+      else
+        @post.user.increase_karma(1)
+        redirect_to posts_path
+      end
     end
   end
 
