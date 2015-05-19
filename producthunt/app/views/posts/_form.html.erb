@@ -11,6 +11,8 @@
         <% end %>
       </p>
       <p> <%= post.user.username %></p>
+      Votes: <%= post.score %>
+      <%= link_to "upvote", like_post_path(post), method: :put %>
       <%= link_to "Post", post_path(post) %>
     </div>
   </div>
@@ -27,6 +29,8 @@
         <% end %>
       </p>
       <p> <%= post.user.username %></p>
+      Votes: <%= post.score %>
+      <%= link_to "upvote", like_post_path(post), method: :put %>
       <%= link_to "Post", post_path(post) %>
     </div>
   </div>
