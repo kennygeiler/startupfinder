@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
 
   def score
-    self.get_upvotes.size
+    self.get_upvotes.sum(:vote_weight)
   end
 
 end
