@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :comments
   acts_as_voter
 
-  def increase_karma(count=1)
+  def increase_karma(count)
     update_attribute(:karma, karma + count)
   end
 
