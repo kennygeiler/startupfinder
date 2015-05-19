@@ -4,6 +4,8 @@
   Question: <%= feedback.question %> <br>
   <% feedback.comments.each do |comment| %>
     Comment: <%= comment.content %> <br>
+    Votes: <%= comment.score %>
+     <%= link_to "upvote", like_post_feedback_comment_path(@post, feedback, comment), method: :put %> <br>
   <% end %>
    <%= link_to "New comment", new_post_feedback_comment_path(@post, feedback) %> <br>
 <% end %>

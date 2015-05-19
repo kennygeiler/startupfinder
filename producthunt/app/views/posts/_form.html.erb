@@ -1,6 +1,4 @@
-<% if post.staff_pick %>
-  <div class="staff-pick-post">
-    <div class='post'>
+    <% if post.staff_pick %>
       <h3> <%= post.title %> </h3>
       <p> <%= post.link %> </p>
       <p>
@@ -11,26 +9,24 @@
         <% end %>
       </p>
       <p> <%= post.user.username %></p>
+      Votes: <%= post.score %>
+      <%= link_to "upvote", like_post_path(post), method: :put %>
       <%= link_to "Post", post_path(post) %>
-    </div>
-  </div>
-<% else %>
-  <div class="not-staff-pick-post">
-    <div class='post'>
-      <h3> <%= post.title %> </h3>
-      <p> <%= post.link %> </p>
-      <p>
-        <% if post.hiring %>
-          hiring!
-        <% else %>
-          not hiring
-        <% end %>
-      </p>
-      <p> <%= post.user.username %></p>
-      <%= link_to "Post", post_path(post) %>
-    </div>
-  </div>
-<% end %>
+  <% else %>
+    <h3> <%= post.title %> </h3>
+    <p> <%= post.link %> </p>
+    <p>
+    <% if post.hiring %>
+      hiring!
+    <% else %>
+      not hiring
+    <% end %>
+    </p>
+    <p> <%= post.user.username %></p>
+    Votes: <%= post.score %>
+    <%= link_to "upvote", like_post_path(post), method: :put %>
+    <%= link_to "Post", post_path(post) %>
+  <% end %>
 
 
 
