@@ -4,4 +4,8 @@ class Post < ActiveRecord::Base
   has_many :comments
   has_many :feedbacks
 
+  def score
+    self.get_upvotes.size
+  end
+
 end
