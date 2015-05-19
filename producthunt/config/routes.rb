@@ -12,15 +12,16 @@ Rails.application.routes.draw do
   resources :users
   resources :posts do
     member do
-      put "like", to: "links#upvote"
-      put "dislike", to: "links#downvote"
+      put "like", to: "posts#upvote"
+      put "dislike", to: "posts#downvote"
     end
     resources :feedbacks do
-      member do
-        put "like", to: "links#upvote"
-        put "dislike", to: "links#downvote"
+      resources :comments do
+        member do
+          put "like", to: "comments#upvote"
+          put "dislike", to: "comments#downvote"
+        end
       end
-      resources :comments
     end
   end
 end
