@@ -17,8 +17,13 @@ class CommentsController < ApplicationController
 
   def upvote
     @comment = Comment.find(params[:id])
-    @comment.upvote_by current_user
-    redirect_to post_path(@comment.post_id)
+    if current_user.voted_for? @comment
+      redirect_to post_path(@comment.post_id)
+    else
+      @comment.upvote_by current_user
+      @comment.user.increase_karma
+      redirect_to post_path(@comment.post_id)
+    end
   end
 
   private
