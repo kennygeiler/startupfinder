@@ -5,6 +5,7 @@
         <% if post.staff_pick %>
         <div class="single-line-post">
           <h3> <%= post.title %> </h3>
+          <p> <%= post.description %> </p>
           <p> <%= post.link %> </p>
             <% if post.hiring %>
              <p> hiring! </p>
@@ -25,6 +26,7 @@
         <% if !post.staff_pick %>
         <div class="single-line-post">
           <h3> <%= post.title %> </h3>
+          <p> <%= post.description %> </p>
           <p> <%= post.link %> </p>
           <% if post.hiring %>
              <p> hiring! </p>
