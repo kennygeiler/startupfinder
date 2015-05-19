@@ -15,6 +15,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def upvote
+    @comment = Comment.find(params[:id])
+    @comment.upvote_by current_user
+    redirect_to post_path(@comment.post_id)
+  end
+
   private
 
   def comment_params
