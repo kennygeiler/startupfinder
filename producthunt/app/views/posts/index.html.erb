@@ -6,15 +6,13 @@
         <div class="single-line-post">
           <h3> <%= post.title %> </h3>
           <p> <%= post.link %> </p>
-          <p>
             <% if post.hiring %>
-              hiring!
+             <p> hiring! </p>
             <% else %>
-              not hiring
+             <p> not hiring </p>
             <% end %>
-          </p>
           <p> <%= post.user.username %></p>
-          Votes: <%= post.score %>
+          <p>Votes: <%= post.score %> </p>
           <%= link_to "upvote", like_post_path(post), method: :put %>
           <%= link_to "Post", post_path(post) %>
         </div>
@@ -28,15 +26,13 @@
         <div class="single-line-post">
           <h3> <%= post.title %> </h3>
           <p> <%= post.link %> </p>
-          <p>
-            <% if post.hiring %>
-              hiring!
+          <% if post.hiring %>
+             <p> hiring! </p>
             <% else %>
-              not hiring
+             <p> not hiring </p>
             <% end %>
-          </p>
-          <p> <%= post.user.username %></p>
-          Votes: <%= post.score %>
+          <p> <%= post.user.username %> </p>
+          <p>Votes: <%= post.score %> </p>
           <%= link_to "upvote", like_post_path(post), method: :put %>
           <%= link_to "Post", post_path(post) %>
         </div>
