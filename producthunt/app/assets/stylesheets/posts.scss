@@ -21,3 +21,19 @@
 #right-header {
   border-left: 1px solid black;
 }
+
+.single-line-post {
+  display: inline-flex;
+}
+
+.single-line-post h3 {
+  padding: 5px;
+}
+
+.single-line-post p {
+  padding: 5px;
+}
+
+.single-line-post a {
+  padding: 5px;
+}
