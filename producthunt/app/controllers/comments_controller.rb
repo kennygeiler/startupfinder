@@ -21,8 +21,13 @@ class CommentsController < ApplicationController
       redirect_to post_path(@comment.post_id)
     else
       @comment.upvote_by current_user
-      @comment.user.increase_karma
-      redirect_to post_path(@comment.post_id)
+      if current_user.id == @comment.feedback.post.user_id
+        @comment.user.increase_karma(10)
+        redirect_to post_path(@comment.post_id)
+      else
+        @comment.user.increase_karma(1)
+        redirect_to post_path(@comment.post_id)
+      end
     end
   end
 
