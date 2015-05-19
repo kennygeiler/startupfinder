@@ -74,13 +74,14 @@ ActiveRecord::Schema.define(version: 20150519132218) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "title",                      null: false
-    t.string   "link",                       null: false
-    t.boolean  "hiring",     default: false
-    t.boolean  "staff_pick", default: false
+    t.string   "title",                       null: false
+    t.string   "link",                        null: false
+    t.string   "description"
+    t.boolean  "hiring",      default: false
+    t.boolean  "staff_pick",  default: false
     t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "sashes", force: :cascade do |t|
@@ -92,7 +93,6 @@ ActiveRecord::Schema.define(version: 20150519132218) do
     t.string   "email",                       null: false
     t.string   "username",                    null: false
     t.string   "password_digest",             null: false
-    t.text     "credentials"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sash_id"
