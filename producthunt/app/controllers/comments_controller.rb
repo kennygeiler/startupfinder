@@ -17,8 +17,18 @@ class CommentsController < ApplicationController
 
   def upvote
     @comment = Comment.find(params[:id])
-    @comment.upvote_by current_user
-    redirect_to post_path(@comment.post_id)
+    if current_user.voted_for? @comment
+      redirect_to post_path(@comment.post_id)
+    else
+      @comment.upvote_by current_user, :vote_weight => current_user.vote_weight_score
+      if current_user.id == @comment.feedback.post.user_id
+        @comment.user.increase_karma(10)
+        redirect_to post_path(@comment.post_id)
+      else
+        @comment.user.increase_karma(1)
+        redirect_to post_path(@comment.post_id)
+      end
+    end
   end
 
   private

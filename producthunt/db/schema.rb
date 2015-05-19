@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518211825) do
+ActiveRecord::Schema.define(version: 20150519132218) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20150518211825) do
     t.datetime "updated_at"
     t.integer  "sash_id"
     t.integer  "level",           default: 0
+    t.integer  "karma",           default: 0
   end
 
   create_table "votes", force: :cascade do |t|

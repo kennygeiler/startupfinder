@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   has_many :feedbacks
 
   def score
-    self.get_upvotes.size
+    self.get_upvotes.sum(:vote_weight)
   end
 
 end

@@ -28,8 +28,18 @@ class PostsController < ApplicationController
 
   def upvote
     @post = Post.find(params[:id])
-    @post.upvote_by current_user
-    redirect_to posts_path
+    if current_user.voted_for? @post
+      redirect_to posts_path
+    else
+      @post.upvote_by current_user, :vote_weight => current_user.vote_weight_score
+      if current_user.id == @post.user_id
+        @post.user.increase_karma(10)
+        redirect_to posts_path
+      else
+        @post.user.increase_karma(1)
+        redirect_to posts_path
+      end
+    end
   end
 
   private
