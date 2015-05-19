@@ -14,12 +14,10 @@
   clear: left;
 }
 
-#staff-post-header {
-  float: left;
-  clear: left;
+.root-header {
+  text-align: center;
 }
 
-#regular-post-header {
-  float: right;
-  clear: top;
+#right-header {
+  border-left: 1px solid black;
 }
