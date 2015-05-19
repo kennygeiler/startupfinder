@@ -31,7 +31,7 @@ class PostsController < ApplicationController
     if current_user.voted_for? @post
       redirect_to posts_path
     else
-      @post.upvote_by current_user
+      @post.upvote_by current_user, :vote_weight => current_user.vote_weight_score
       if current_user.id == @post.user_id
         @post.user.increase_karma(10)
         redirect_to posts_path
