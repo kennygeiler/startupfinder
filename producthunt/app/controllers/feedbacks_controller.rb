@@ -13,6 +13,12 @@ class FeedbacksController < ApplicationController
     end
   end
 
+  def upvote
+    @feedback = Feedback.find(params[:id])
+    @feedback.upvote_by current_user
+    redirect_to post_path(@feedback.post_id)
+  end
+
   private
 
   def feedback_params
