@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'comments/new'
-
-  get 'users/new'
   root 'posts#index'
+
+  get 'comments/new'
+  get 'users/new'
+
   get 'sessions/new'
   get    'signup'  => 'users#new'
   get    'login'   => 'sessions#new'
@@ -12,9 +13,9 @@ Rails.application.routes.draw do
   # get 'auth/:provider/callback', to: 'sessions#create'
   # get 'logout', to: 'sessions#destroy'
 
-match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
-match 'auth/failure', to: redirect('/'), via: [:get, :post]
-match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
   #origin login routes
   # post   'login'   => 'sessions#create'

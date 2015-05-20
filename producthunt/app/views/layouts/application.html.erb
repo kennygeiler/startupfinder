@@ -16,16 +16,13 @@
         </li>
       </ul>
       <section class="top-bar-section">
-        <!-- Right Nav Section -->
         <ul class="right">
-          <li><a href="#">Login with Facebook</a></li>
           <li><%= link_to "Submit Startup", new_post_path %></li>
           <% if current_user %>
             <li><%= link_to "Profile", user_path(current_user) %></li>
-            <li><%= link_to "Log out", signout_path, :method => :delete %></li>
+            <li><%= link_to "Log out", signout_path %></li>
           <% else %>
-            <li><%= link_to "Signin", login_path %></li>
-            <li><%= link_to "Signup", signup_path %></li>
+            <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
           <% end %>
         </ul>
       </section>

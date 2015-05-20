@@ -13,5 +13,5 @@ end
   Post.create(title: Faker::Company.name, link: Faker::Internet.url, description: Faker::Lorem.sentence, hiring: true, staff_pick: false, user_id: 1)
 end
 
-User.create(username: 'kenny', email: 'kenny@aol.com', password: '123')
-User.create(username: 'john', email: 'john@aol.com', password: '123')
+User.create(name: 'kenny')
+User.create(name: 'john')
