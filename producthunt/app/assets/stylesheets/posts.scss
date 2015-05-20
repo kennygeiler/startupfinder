@@ -1,13 +1,34 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html body {
+  font-family: 'Ropa Sans', sans-serif;
+}
+
+body .top-bar {
+  max-width: 80%;
+  margin: auto;
+  background-color: transparent;
+  border-bottom: 1px solid black
+}
+
+body .top-bar .name h1 a {
+  color: black;
+}
+
+nav .top-bar-section li:not(.has-form) a:not(.button) {
+  background-color: white;
+  color: black;
+}
 
 .container .posts-container {
+  margin-top: 50px;
   max-width: 80%;
 }
 
 .posts-container .root-header {
-  border-bottom: 3px solid black;
+  font-size: 25px;
+  border-bottom: 1.5px solid black;
 }
 
 .single-line-post .vote-container {
