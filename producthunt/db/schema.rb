@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20150520194428) do
 
   create_table "comments", force: :cascade do |t|
@@ -63,7 +62,6 @@ ActiveRecord::Schema.define(version: 20150520194428) do
     t.float    "cached_weighted_average", default: 0.0
   end
 
-
   add_index "posts", ["cached_votes_down"], name: "index_posts_on_cached_votes_down"
   add_index "posts", ["cached_votes_score"], name: "index_posts_on_cached_votes_score"
   add_index "posts", ["cached_votes_total"], name: "index_posts_on_cached_votes_total"
@@ -79,8 +77,9 @@ ActiveRecord::Schema.define(version: 20150520194428) do
     t.string   "image"
     t.string   "token"
     t.datetime "expires_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "karma",      default: 0
   end
 
   create_table "votes", force: :cascade do |t|
