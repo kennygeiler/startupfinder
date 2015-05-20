@@ -13,13 +13,15 @@
         <% if current_user %>
           <li><%= link_to "Profile", user_path(current_user) %></li>
           <li><%= link_to "Submit Startup", new_post_path %></li>
-          <li><%= link_to "Log out", signout_path, :method => :delete %></li>
+          <li><%= link_to "Log out", signout_path %></li>
         <% else %>
           <li><%= link_to "Signin", login_path %></li>
           <li><%= link_to "Signup", signup_path %></li>
         <% end %>
       </ul>
     </nav>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
