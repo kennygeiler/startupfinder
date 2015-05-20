@@ -11,16 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520193422) do
+ActiveRecord::Schema.define(version: 20150520194428) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
     t.integer  "feedback_id"
     t.integer  "post_id"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "cached_votes_total",      default: 0
+    t.integer  "cached_votes_score",      default: 0
+    t.integer  "cached_votes_up",         default: 0
+    t.integer  "cached_votes_down",       default: 0
+    t.integer  "cached_weighted_score",   default: 0
+    t.integer  "cached_weighted_total",   default: 0
+    t.float    "cached_weighted_average", default: 0.0
   end
+
+  add_index "comments", ["cached_votes_down"], name: "index_comments_on_cached_votes_down"
+  add_index "comments", ["cached_votes_score"], name: "index_comments_on_cached_votes_score"
+  add_index "comments", ["cached_votes_total"], name: "index_comments_on_cached_votes_total"
+  add_index "comments", ["cached_votes_up"], name: "index_comments_on_cached_votes_up"
+  add_index "comments", ["cached_weighted_average"], name: "index_comments_on_cached_weighted_average"
+  add_index "comments", ["cached_weighted_score"], name: "index_comments_on_cached_weighted_score"
+  add_index "comments", ["cached_weighted_total"], name: "index_comments_on_cached_weighted_total"
 
   create_table "feedbacks", force: :cascade do |t|
     t.string   "question"
