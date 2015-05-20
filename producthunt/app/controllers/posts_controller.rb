@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.order(:cached_votes_total => :desc)
   end
 
   def show
