@@ -2,7 +2,7 @@
 
 <% @post.feedbacks.each do |feedback| %>
   Question: <%= feedback.question %> <br>
-  <% feedback.comments.each do |comment| %>
+  <% feedback.comments.order(:cached_votes_total => :desc).each do |comment| %>
     Comment: <%= comment.content %> |
     Votes: <%= comment.score %>
      <%= link_to "upvote", like_post_feedback_comment_path(@post, feedback, comment), method: :put %> <br>
