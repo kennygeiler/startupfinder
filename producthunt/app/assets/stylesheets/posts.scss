@@ -2,6 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.container .posts-container {
+  max-width: 80%;
+}
+
+.posts-container .root-header {
+  border-bottom: 3px solid black;
+}
+
+.posts-container .staff-picks-container {
+  border-right: 3px solid black;
+  padding-right: 25px;
+}
+
+.posts-container .regular-picks-container {
+  border-left: 3px solid black;
+  padding-left: 25px;
+}
+
 .post-info > .post-description {
   padding-left: 0px;
 }
