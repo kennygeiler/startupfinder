@@ -3,23 +3,25 @@
     <h2 class="root-header">Staff Picks</h2>
     <% @posts.each do |post| %>
       <% if post.staff_pick %>
-        <div class="single-line-post">
-          <div class="post-title row">
-            <h3 class="medium-12"><%= link_to(post.title, post.link) %></h3>
+        <div class="single-line-post row">
+          <div class="medium-2 columns"><%= post.score %>
+            <%= link_to "upvote", like_post_path(post), method: :put %>
+            <%= link_to "Post", post_path(post) %>
           </div>
-          <div class="post-description row">
-            <div class="medium-3 columns"><%= post.description %></div>
-            <div class="medium-3 columns">
-              <% if post.hiring %>
-                <p> hiring! </p>
-              <% else %>
-                <p> not hiring </p>
-              <% end %>
+          <div class="medium-10 columns">
+            <div class="post-title row">
+              <h3 class="medium-12"><%= link_to(post.title, post.link) %></h3>
             </div>
-            <div class="medium-3 columns"><%= post.user.username %></div>
-            <div class="medium-3 columns">Votes: <%= post.score %>
-              <%= link_to "upvote", like_post_path(post), method: :put %>
-              <%= link_to "Post", post_path(post) %>
+            <div class="post-info row">
+              <div class="medium-8 columns post-description"><%= post.description %></div>
+              <div class="medium-2 columns">
+                <% if post.hiring %>
+                  Hiring!
+                <% else %>
+                  Not hiring
+                <% end %>
+              </div>
+              <div class="medium-2 columns"><%= post.user.username %></div>
             </div>
           </div>
         </div>
