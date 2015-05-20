@@ -1,53 +1,65 @@
 <div class="row">
-  <div class="medium-6 columns">
+  <div class="staff-picks-container medium-6 columns">
     <h2 class="root-header">Staff Picks</h2>
-    <% @posts.each do |post| %>
-      <% if post.staff_pick %>
-        <div class="single-line-post row">
-          <div class="medium-2 columns"><%= post.score %>
-            <%= link_to "upvote", like_post_path(post), method: :put %>
-            <%= link_to "Post", post_path(post) %>
-          </div>
-          <div class="medium-10 columns">
-            <div class="post-title row">
-              <h3 class="medium-12"><%= link_to(post.title, post.link) %></h3>
+    <div class="staff-picks-listing scrolling-listing">
+      <% @posts.each do |post| %>
+        <% if post.staff_pick %>
+          <div class="single-line-post row">
+            <div class="medium-2 columns"><%= post.score %>
+              <%= link_to "upvote", like_post_path(post), method: :put %>
+              <%= link_to "Post", post_path(post) %>
             </div>
-            <div class="post-info row">
-              <div class="medium-8 columns post-description"><%= post.description %></div>
-              <div class="medium-2 columns">
-                <% if post.hiring %>
-                  Hiring!
-                <% else %>
-                  Not hiring
-                <% end %>
+            <div class="medium-10 columns">
+              <div class="post-title row">
+                <h3 class="medium-12"><%= link_to(post.title, post.link) %></h3>
               </div>
-              <div class="medium-2 columns"><%= post.user.name %></div>
+              <div class="post-info row">
+                <div class="medium-8 columns post-description"><%= post.description %></div>
+                <div class="medium-2 columns">
+                  <% if post.hiring %>
+                    Hiring!
+                <% else %>
+                    Not hiring
+                <% end %>
+                </div>
+                <div class="medium-2 columns"><%= post.user.name %></div>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-  <div class="medium-6 columns">
+  <div class="regular-picks-container medium-6 columns">
     <h2 class="root-header">Regular Posts</h2>
-    <% @posts.each do |post| %>
-      <% if !post.staff_pick %>
-        <div class="single-line-post">
-          <h3> <%= post.title %> </h3>
-          <p> <%= post.description %> </p>
-          <p> <%= post.link %> </p>
-          <% if post.hiring %>
-            <p> hiring! </p>
-          <% else %>
-            <p> not hiring </p>
-          <% end %>
-          <p> <%= post.user.name %> </p>
-          <p>Votes: <%= post.score %> </p>
-          <%= link_to "upvote", like_post_path(post), method: :put %>
-          <%= link_to "Post", post_path(post) %>
-        </div>
+    <div class="regular-picks-listing scrolling-listing">
+      <% @posts.each do |post| %>
+        <% if !post.staff_pick %>
+          <div class="single-line-post row">
+            <div class="medium-2 columns"><%= post.score %>
+              <%= link_to "upvote", like_post_path(post), method: :put %>
+              <%= link_to "Post", post_path(post) %>
+            </div>
+            <div class="medium-10 columns">
+              <div class="post-title row">
+                <h3 class="medium-12"><%= link_to(post.title, post.link) %></h3>
+              </div>
+              <div class="post-info row">
+                <div class="medium-8 columns post-description"><%= post.description %></div>
+                <div class="medium-2 columns">
+                  <% if post.hiring %>
+                    Hiring!
+                  <% else %>
+                    Not hiring
+                  <% end %>
+                </div>
+                <div class="medium-2 columns"><%= post.user.name %></div>
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
 <div id="user-widget">

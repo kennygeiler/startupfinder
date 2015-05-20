@@ -5,3 +5,12 @@
 .post-info > .post-description {
   padding-left: 0px;
 }
+
+.row .scrolling-listing .single-line-post {
+  width: 100%;
+}
+
+.scrolling-listing {
+    max-height: 650px;
+    overflow-y: scroll;
+}
