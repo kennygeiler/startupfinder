@@ -4,23 +4,23 @@
     <div class="staff-picks-listing scrolling-listing">
       <% @posts.each do |post| %>
         <% if post.staff_pick %>
-          <div class="single-line-post row">
+          <div class="single-line-post row" data-href="<%= post_path(post) %>">
             <div class="medium-2 columns"><%= post.score %>
               <%= link_to "upvote", like_post_path(post), method: :put %>
               <%= link_to "Post", post_path(post) %>
             </div>
             <div class="medium-10 columns">
               <div class="post-title row">
-                <h3 class="medium-12"><%= link_to(post.title, post.link) %></h3>
+                <h3 class="medium-12 columns"><%= link_to(post.title, post.link) %></h3>
               </div>
               <div class="post-info row">
                 <div class="medium-8 columns post-description"><%= post.description %></div>
                 <div class="medium-2 columns">
                   <% if post.hiring %>
-                    Hiring!
-                <% else %>
+                    <i class="fa fa-usd"></i>
+                  <% else %>
                     Not hiring
-                <% end %>
+                  <% end %>
                 </div>
                 <div class="medium-2 columns"><%= post.user.username %></div>
               </div>
