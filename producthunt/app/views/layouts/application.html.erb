@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Producthunt</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<nav class="navbar navbar-pills">
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <% if current_user %>
-        <li><%= link_to "Profile", user_path(current_user) %></li>
-        <li><%= link_to "Submit Startup", new_post_path %></li>
-        <li><%= link_to "Log out", logout_path, :method => :delete %></li>
-      <% else %>
-        <li><%= link_to "Signin", login_path %></li>
-        <li><%= link_to "Signup", signup_path %></li>
-      <% end %>
-    </ul>
-</nav>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>Producthunt</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <nav class="navbar navbar-pills">
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <% if current_user %>
+          <li><%= link_to "Profile", user_path(current_user) %></li>
+          <li><%= link_to "Submit Startup", new_post_path %></li>
+          <li><%= link_to "Log out", signout_path, :method => :delete %></li>
+        <% else %>
+          <li><%= link_to "Signin", login_path %></li>
+          <li><%= link_to "Signup", signup_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+    <%= yield %>
+  </body>
 </html>

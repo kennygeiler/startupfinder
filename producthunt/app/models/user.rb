@@ -1,5 +1,6 @@
+require 'byebug'
 class User < ActiveRecord::Base
-  has_secure_password
+  # has_secure_password
   has_many :posts
   has_many :comments
   acts_as_voter
@@ -19,7 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def self.omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+    where(auth.slice(:provider, :uid).to_hash).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.name
