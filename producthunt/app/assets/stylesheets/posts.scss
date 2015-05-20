@@ -20,12 +20,12 @@
   padding-left: 25px;
 }
 
-.post-info > .post-description {
-  padding-left: 0px;
-}
-
 .row .scrolling-listing .single-line-post {
   width: 100%;
+}
+
+.single-line-post:hover {
+  background-color: #fcf5e2;
 }
 
 .scrolling-listing {
