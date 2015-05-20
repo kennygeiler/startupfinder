@@ -45,13 +45,13 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
   padding-left: 25px;
 }
 
-.post-info > .post-description {
-  padding-left: 0px;
-}
-
 .row .scrolling-listing .single-line-post {
   width: 100%;
   margin: 0px;
+}
+
+.single-line-post:hover {
+  background-color: #fcf5e2;
 }
 
 .single-line-post:hover {
