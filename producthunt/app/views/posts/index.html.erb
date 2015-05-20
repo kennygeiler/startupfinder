@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="large-6">
+  <div class="large-6 columns">
     <h2 class="root-header">Staff Picks</h2>
     <% @posts.each do |post| %>
       <% if post.staff_pick %>
@@ -20,7 +20,7 @@
       <% end %>
     <% end %>
   </div>
-  <div class="unit-50">
+  <div class="large-6 columns">
     <h2 class="root-header">Regular Posts</h2>
     <% @posts.each do |post| %>
       <% if !post.staff_pick %>
