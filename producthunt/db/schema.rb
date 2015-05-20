@@ -71,12 +71,15 @@ ActiveRecord::Schema.define(version: 20150520194428) do
   add_index "posts", ["cached_weighted_total"], name: "index_posts_on_cached_weighted_total"
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                       null: false
-    t.string   "username",                    null: false
-    t.string   "password_digest",             null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "karma",           default: 0
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "image"
+    t.string   "token"
+    t.datetime "expires_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "karma",      default: 0
   end
 
   create_table "votes", force: :cascade do |t|
