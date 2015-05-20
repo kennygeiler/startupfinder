@@ -36,11 +36,17 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 }
 
 .posts-container .staff-picks-container {
+  border-right: 3px solid black;
   padding-right: 25px;
 }
 
 .posts-container .regular-picks-container {
+  border-left: 3px solid black;
   padding-left: 25px;
+}
+
+.post-info > .post-description {
+  padding-left: 0px;
 }
 
 .row .scrolling-listing .single-line-post {
@@ -61,6 +67,3 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
   font-size: 20px;
 }
 
-.post-info > .post-description {
-  padding-left: 0px;
-}
