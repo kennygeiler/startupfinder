@@ -9,5 +9,9 @@ Post.create(title: 'turnupo', link: 'http://www.nppl.com', description: Faker::L
   Post.create(title: Faker::Company.name, link: Faker::Internet.url, description: Faker::Lorem.sentence, hiring: true, staff_pick: true, user_id: 1)
 end
 
+10.times do
+  Post.create(title: Faker::Company.name, link: Faker::Internet.url, description: Faker::Lorem.sentence, hiring: true, staff_pick: false, user_id: 1)
+end
+
 User.create(username: 'kenny', email: 'kenny@aol.com', password: '123')
 User.create(username: 'john', email: 'john@aol.com', password: '123')
