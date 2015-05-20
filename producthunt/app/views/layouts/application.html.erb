@@ -6,6 +6,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <nav class="top-bar" data-topbar role="navigation">
@@ -13,13 +14,11 @@
         <li class="name">
           <h1><a href="/">Phunt</a></h1>
         </li>
-        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
-          <li class="active"><a href="#">Login with Facebook</a></li>
+          <li><a href="#">Login with Facebook</a></li>
           <li><%= link_to "Submit Startup", new_post_path %></li>
           <% if current_user %>
             <li><%= link_to "Profile", user_path(current_user) %></li>

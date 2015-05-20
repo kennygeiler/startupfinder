@@ -1,6 +1,6 @@
 <div class="posts-container row">
   <div class="staff-picks-container medium-6 columns">
-    <h2 class="root-header">Staff Picks</h2>
+    <div class="root-header">Staff Picks</div>
     <div class="staff-picks-listing scrolling-listing">
       <% @posts.each do |post| %>
         <% if post.staff_pick %>
@@ -35,7 +35,7 @@
     </div>
   </div>
   <div class="regular-picks-container medium-6 columns">
-    <h2 class="root-header">Regular Posts</h2>
+    <div class="root-header">Regular Posts</div>
     <div class="regular-picks-listing scrolling-listing">
       <% @posts.each do |post| %>
         <% if !post.staff_pick %>
