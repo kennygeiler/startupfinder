@@ -1,48 +1,47 @@
-<div class="units-row units-padding">
-    <div class="unit-50" id="left-header">
-      <h2 class="root-header">Staff Picks</h2>
-      <% @posts.each do |post| %>
-        <% if post.staff_pick %>
-        <div class="single-line-post">
-          <h3> <%= post.title %> </h3>
-          <p> <%= post.description %> </p>
-          <p> <%= post.link %> </p>
-            <% if post.hiring %>
-             <p> hiring! </p>
-            <% else %>
-             <p> not hiring </p>
-            <% end %>
-          <p> <%= post.user.name %></p>
-          <p>Votes: <%= post.score %> </p>
-          <%= link_to "upvote", like_post_path(post), method: :put %>
-          <%= link_to "Post", post_path(post) %>
-        </div>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="unit-50" id="right-header">
-      <h2 class="root-header">Regular Posts</h2>
-      <% @posts.each do |post| %>
-        <% if !post.staff_pick %>
+<div class="row">
+  <div class="large-6">
+    <h2 class="root-header">Staff Picks</h2>
+    <% @posts.each do |post| %>
+      <% if post.staff_pick %>
         <div class="single-line-post">
           <h3> <%= post.title %> </h3>
           <p> <%= post.description %> </p>
           <p> <%= post.link %> </p>
           <% if post.hiring %>
-             <p> hiring! </p>
-            <% else %>
-             <p> not hiring </p>
-            <% end %>
+            <p> hiring! </p>
+          <% else %>
+            <p> not hiring </p>
+          <% end %>
+          <p> <%= post.user.name %></p>
+          <p>Votes: <%= post.score %> </p>
+          <%= link_to "upvote", like_post_path(post), method: :put %>
+          <%= link_to "Post", post_path(post) %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="unit-50">
+    <h2 class="root-header">Regular Posts</h2>
+    <% @posts.each do |post| %>
+      <% if !post.staff_pick %>
+        <div class="single-line-post">
+          <h3> <%= post.title %> </h3>
+          <p> <%= post.description %> </p>
+          <p> <%= post.link %> </p>
+          <% if post.hiring %>
+            <p> hiring! </p>
+          <% else %>
+            <p> not hiring </p>
+          <% end %>
           <p> <%= post.user.name %> </p>
           <p>Votes: <%= post.score %> </p>
           <%= link_to "upvote", like_post_path(post), method: :put %>
           <%= link_to "Post", post_path(post) %>
         </div>
-          <% end %>
       <% end %>
-    </div>
+    <% end %>
+  </div>
 </div>
-
 <div id="user-widget">
   <% if current_user %>
     Welcome <strong><%= current_user.name %></strong>!
@@ -51,4 +50,3 @@
     <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
   <% end %>
 </div>
-
