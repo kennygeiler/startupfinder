@@ -33,8 +33,13 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 }
 
 .container .posts-container {
-  margin-top: 50px;
   max-width: 90%;
+}
+
+.container .filter-links {
+  padding-left: 0.9375rem;
+  max-width: 90%;
+  margin: 50px auto 0
 }
 
 .posts-container .root-header {
