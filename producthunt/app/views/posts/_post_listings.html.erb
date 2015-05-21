@@ -1,5 +1,10 @@
+<div class="filter-links filter">
+  <%= link_to "ALL", posts_path, class: "post-filter" %>
+  <%= link_to "TODAY", posts_today_path, class: "post-filter" %>
+  <%= link_to "WEEK", posts_week_path, class: "post-filter" %>
+  <%= link_to "MONTH", posts_month_path, class: "post-filter" %>
+</div>
 <div class="posts-container row">
-  <%= link_to "TODAY", posts_path, class: "post-filter" %> <%= link_to "WEEK", posts_week_path, class: "post-filter" %> <%= link_to "MONTH", posts_month_path, class: "post-filter" %>
   <div class="staff-picks-container medium-6 columns">
     <div class="root-header">Staff Picks</div>
     <div class="staff-picks-listing scrolling-listing">

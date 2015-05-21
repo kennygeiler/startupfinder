@@ -24,6 +24,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def today
+    @posts = Post.today.order(:cached_votes_total => :desc)
+    if request.xhr?
+      render partial: 'post_listings', locals: {posts: @posts}, layout: false
+    end
+  end
+
   def week
     @posts = Post.week.order(:cached_votes_total => :desc)
     if request.xhr?
