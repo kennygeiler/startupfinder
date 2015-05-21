@@ -18,10 +18,21 @@
       </ul>
       <section class="top-bar-section nav-buttons">
         <ul class="right">
-          <li><%= link_to "Submit Startup", new_post_path %></li>
+          <li>
+            <%= link_to new_post_path do %>
+              <i class="fa fa-plus-circle"></i>
+            <% end %>
+          </li>
           <% if current_user %>
-            <li><%= link_to "Profile", user_path(current_user) %></li>
-            <li><%= link_to "Log out", signout_path %></li>
+            <!-- <li><%= link_to "Profile", user_path(current_user) %></li> -->
+            <li>
+              <%= link_to signout_path do %>
+                <i class="fa fa-sign-out"></i>
+              <% end %>
+            </li>
+             <li>
+              <a href="#"><i class="fa fa-arrow-up nav-arrow"></i> <%= current_user.karma %></a>
+            </li>
           <% else %>
             <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
           <% end %>
