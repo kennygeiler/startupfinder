@@ -38,8 +38,10 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 }
 
 .posts-container .root-header {
-  font-size: 30px;
-  font-weight: bolder;
+  font-family: 'Bevan', cursive;
+  font-size: 20px;
+  font-weight: lighter;
+  margin-bottom: 10px;
  }
 
 .single-line-post .vote-container {
@@ -63,10 +65,12 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 }
 
 .posts-container .staff-picks-container {
+  margin-top: 15px;
   padding-right: 25px;
 }
 
 .posts-container .regular-picks-container {
+  margin-top: 15px;
   padding-left: 25px;
 }
 
@@ -106,3 +110,21 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
   padding: 5px;
   margin: 5px;
 }
+
+.filter {
+  margin-top: -50px;
+  padding-bottom: 10px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  padding-top: 10px;
+}
+
+.filter a {
+  padding: 5px;
+  color: #727272;
+}
+
+.filter a:hover {
+  background-color: #A4E0FF;
+}
+
