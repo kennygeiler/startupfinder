@@ -4,12 +4,13 @@ html body {
 }
 
 .name h1 a {
-  font-size: 25px;
+  color: rgb(65, 156, 226);
+  font-size: 30px;
   font-family: 'Bevan', cursive;
 }
 
 .name h1 a i {
-  color: rgb(82, 143, 245);
+  color: #42402C;
 }
 
 .top-bar {
@@ -24,13 +25,13 @@ body .top-bar {
 }
 
 body .top-bar .name h1 a {
-  color: black;
+  color: rgb(65, 156, 226);
 }
 
 nav .top-bar-section li:not(.has-form) a:not(.button) {
   background-color: white;
-  color: black;
-  font-size: 18px;
+  color: rgb(65, 156, 226);
+  font-size: 30px;
 }
 
 .container .posts-container {
