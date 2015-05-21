@@ -33,7 +33,7 @@
             </div>
             <div class="row">
               <div class="comment-upvote medium-offset-1 medium-11 columns">
-                <%= link_to "<i class='fa fa-arrow-up'></i>".html_safe, like_post_feedback_comment_path(@post, feedback, comment), method: :put %>
+                <%= link_to "<i class='comment-upvote-button fa fa-arrow-up'></i>".html_safe, like_post_feedback_comment_path(@post, feedback, comment), method: :put %>
                 <%= comment.score %>
               </div>
             </div>
