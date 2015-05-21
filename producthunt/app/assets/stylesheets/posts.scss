@@ -42,6 +42,24 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
   margin: 50px auto 0
 }
 
+.filter {
+  margin-top: -50px;
+  padding-bottom: 10px;
+  border-top: 1px solid grey;
+  padding-top: 10px;
+}
+
+.filter a {
+  padding: 5px;
+  color: #727272;
+  font-family: 'Exo', sans-serif;
+  font-weight: 400;
+}
+
+.filter a:hover {
+  background-color: #A4E0FF;
+}
+
 .posts-container .root-header {
   font-family: 'Bevan', cursive;
   font-size: 20px;
@@ -116,23 +134,5 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 .single-line-post {
   padding: 5px;
   margin: 5px;
-}
-
-.filter {
-  margin-top: -50px;
-  padding-bottom: 10px;
-  border-top: 1px solid grey;
-  padding-top: 10px;
-}
-
-.filter a {
-  padding: 5px;
-  color: #727272;
-  font-family: 'Exo', sans-serif;
-  font-weight: 400;
-}
-
-.filter a:hover {
-  background-color: #A4E0FF;
 }
 
