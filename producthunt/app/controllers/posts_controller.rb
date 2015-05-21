@@ -18,6 +18,9 @@ class PostsController < ApplicationController
   end
 
   def index
+    @today_post = Post.today.order(:cached_votes_total => :desc)
+    @week_post = Post.week.order(:cached_votes_total => :desc)
+    @month_post = Post.month.order(:cached_votes_total => :desc)
     @posts = Post.order(:cached_votes_total => :desc)
   end
 
