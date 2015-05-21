@@ -1,5 +1,5 @@
 html body {
-  font-family: 'Slabo 13px', serif;
+  font-family: 'Source Serif Pro', serif;
   background-color: white;
 }
 
@@ -74,6 +74,7 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
   padding: 0px;
   margin-top: 5px;
   width: 40px;
+  height: 40px;
 }
 
 .vote-container {
@@ -116,7 +117,7 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 }
 
 .post-title {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .post-title a {
