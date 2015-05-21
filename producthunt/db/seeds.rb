@@ -10,13 +10,13 @@ Post.create(title: 'turnupo', link: 'http://www.nppl.com', description: Faker::L
   5.times do
     feedback = post.feedbacks.create(question: Faker::Lorem.sentence)
     5.times do
-      feedback.comments.create(content: Faker::Lorem.paragraph, user_id: 2)
+      feedback.comments.create(content: Faker::Lorem.paragraph, user_id: 1)
     end
   end
 end
 
 20.times do
-  post = Post.create(title: Faker::Company.name, link: Faker::Internet.url, description: Faker::Lorem.sentence, hiring: true, staff_pick: false, user_id: 2)
+  post = Post.create(title: Faker::Company.name, link: Faker::Internet.url, description: Faker::Lorem.sentence, hiring: true, staff_pick: false, user_id: 1)
   5.times do
     feedback = post.feedbacks.create(question: Faker::Lorem.sentence)
     5.times do
