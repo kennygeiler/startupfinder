@@ -22,13 +22,19 @@
                 <%= image_tag(comment.user.image) %>
               </div>
               <div class="user-name medium-11 columns">
-                <%= comment.user.name %> <%= feedback.post.user.karma %>
+                <%= comment.user.name %>
+                <span class="alert round radius label"><%= feedback.post.user.karma %></span>
               </div>
             </div>
             <div class="row">
               <div class="comment medium-offset-1 medium-11 columns">
-                <%= comment.content %> | Votes: <%= comment.score %>
-                <%= link_to "upvote", like_post_feedback_comment_path(@post, feedback, comment), method: :put %>
+                <%= comment.content %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="comment-upvote medium-offset-1 medium-11 columns">
+                <%= link_to "<i class='fa fa-arrow-up'></i>".html_safe, like_post_feedback_comment_path(@post, feedback, comment), method: :put %>
+                <%= comment.score %>
               </div>
             </div>
           </div>
