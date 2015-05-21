@@ -17,7 +17,7 @@
       <% feedback.comments.order(:cached_votes_total => :desc).each do |comment| %>
         <div class="feedback-comment medium-offset-1 medium-10 columns">
           <div class="feedback-user-container row">
-            <div class="user-picture medium-1 columns text-right">
+            <div class="user-picture medium-1 columns text-center">
               <%= image_tag(comment.user.image) %>
             </div>
             <div class="user-name medium-11 columns">
