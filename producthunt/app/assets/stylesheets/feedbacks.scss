@@ -1,4 +1,9 @@
+.feedback-container .feedback-user-container {
+  margin-left: 0px;
+}
+
 .user-picture img {
+  margin: auto;
   border-radius: 50%;
   height: 40px;
 }
@@ -6,4 +11,17 @@
 .user-name {
   padding-top: 10px;
   height: 40px;
+}
+
+.feedback-container .row {
+  max-width: 90%;
+  margin-left: 0px;
+}
+
+.feedback-container {
+  max-width: 90%;
+}
+
+.feedback-comments-container .columns+.columns:last-child {
+  float: none;
 }

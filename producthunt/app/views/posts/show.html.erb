@@ -1,26 +1,42 @@
 <div class="feedback-container">
   <% @post.feedbacks.each do |feedback| %>
     <div class="feedback-user-container row">
-      <div class="user-picture medium-1 columns">
+      <div class="user-picture medium-1 columns text-right">
         <%= image_tag(feedback.post.user.image) %>
       </div>
-      <div class="user-name">
+      <div class="user-name medium-11 columns">
         <%= feedback.post.user.name %>
       </div>
     </div>
-    <div class="feedback-question">
-      <%= feedback.question %>
+    <div class="row">
+      <div class="feedback-question medium-offset-1 medium-11 columns">
+        <%= feedback.question %>
+      </div>
     </div>
-    <div class="feedback-comments-container">
+    <div class="feedback-comments-container row">
       <% feedback.comments.order(:cached_votes_total => :desc).each do |comment| %>
-        <div class="feedback-comment">
-          <%= comment.content %> | Votes: <%= comment.score %>
-          <%= link_to "upvote", like_post_feedback_comment_path(@post, feedback, comment), method: :put %>
+        <div class="feedback-comment medium-offset-1 medium-10 columns">
+          <div class="feedback-user-container row">
+            <div class="user-picture medium-1 columns text-right">
+              <%= image_tag(comment.user.image) %>
+            </div>
+            <div class="user-name medium-11 columns">
+              <%= comment.user.name %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="comment medium-offset-1 medium-10 columns">
+              <%= comment.content %> | Votes: <%= comment.score %>
+              <%= link_to "upvote", like_post_feedback_comment_path(@post, feedback, comment), method: :put %>
+            </div>
+          </div>
         </div>
       <% end %>
     </div>
-    <div class="new-comment">
-      <%= link_to "New comment", new_post_feedback_comment_path(@post, feedback) %>
+    <div class="row">
+      <div class="new-comment medium-offset-1 columns">
+        <%= link_to "New comment", new_post_feedback_comment_path(@post, feedback) %>
+      </div>
     </div>
   <% end %>
   <div class="new-feedback">
