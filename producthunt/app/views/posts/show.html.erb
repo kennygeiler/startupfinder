@@ -1,16 +1,28 @@
-<h2>Post: <%= @post.id %></h2>
-
-<% @post.feedbacks.each do |feedback| %>
-  Question: <%= feedback.question %> <br>
-  <% feedback.comments.order(:cached_votes_total => :desc).each do |comment| %>
-    Comment: <%= comment.content %> |
-    Votes: <%= comment.score %>
-     <%= link_to "upvote", like_post_feedback_comment_path(@post, feedback, comment), method: :put %> <br>
+<div class="feedback-container">
+  <% @post.feedbacks.each do |feedback| %>
+    <div class="feedback-question-container row">
+      <div class="feedback-picture medium-1 columns">
+        <%= image_tag(feedback.post.user.image) %>
+      </div>
+      <div class="feedback-question">
+        <%= feedback.question %>
+      </div>
+    </div>
+    <div class="feedback-comments-container">
+      <% feedback.comments.order(:cached_votes_total => :desc).each do |comment| %>
+        <div class="feedback-comment">
+          <%= comment.content %> | Votes: <%= comment.score %>
+          <%= link_to "upvote", like_post_feedback_comment_path(@post, feedback, comment), method: :put %>
+        </div>
+      <% end %>
+    </div>
+    <div class="new-comment">
+      <%= link_to "New comment", new_post_feedback_comment_path(@post, feedback) %>
+    </div>
   <% end %>
-   <%= link_to "New comment", new_post_feedback_comment_path(@post, feedback) %> <br>
-<% end %>
-<br>
-
-<% if current_user.id == @post.user_id %>
-<%= link_to "Add new Feedback Question", new_post_feedback_path(@post) %>
-<% end %>
+  <div class="new-feedback">
+    <% if current_user.id == @post.user_id %>
+      <%= link_to "Add new Feedback Question", new_post_feedback_path(@post) %>
+    <% end %>
+  </div>
+</div>
