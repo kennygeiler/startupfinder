@@ -3,7 +3,7 @@
   <div class="staff-picks-container medium-6 columns">
     <div class="root-header">Staff Picks</div>
     <div class="staff-picks-listing scrolling-listing">
-      <% @today_posts.each do |post| %>
+      <% @week_posts.each do |post| %>
         <% if post.staff_pick %>
           <div class="single-line-post row" data-href="<%= post_path(post) %>">
             <div class="medium-1 columns vote-container">
@@ -38,7 +38,7 @@
   <div class="regular-picks-container medium-6 columns">
     <div class="root-header">Regular Posts</div>
     <div class="regular-picks-listing scrolling-listing">
-      <% @today_posts.each do |post| %>
+      <% @week_posts.each do |post| %>
         <% if !post.staff_pick %>
           <div class="single-line-post row" data-href="<%= post_path(post) %>">
             <div class="medium-1 columns vote-container">

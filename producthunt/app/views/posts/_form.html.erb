@@ -1,32 +1,4 @@
-    <% if post.staff_pick %>
-      <h3> <%= post.title %> </h3>
-      <p> <%= post.link %> </p>
-      <p>
-        <% if post.hiring %>
-          hiring!
-        <% else %>
-          not hiring
-        <% end %>
-      </p>
-      <p> <%= post.user.username %></p>
-      Votes: <%= post.score %>
-      <%= link_to "upvote", like_post_path(post), method: :put %>
-      <%= link_to "Post", post_path(post) %>
-  <% else %>
-    <h3> <%= post.title %> </h3>
-    <p> <%= post.link %> </p>
-    <p>
-    <% if post.hiring %>
-      hiring!
-    <% else %>
-      not hiring
-    <% end %>
-    </p>
-    <p> <%= post.user.username %></p>
-    Votes: <%= post.score %>
-    <%= link_to "upvote", like_post_path(post), method: :put %>
-    <%= link_to "Post", post_path(post) %>
-  <% end %>
+
 
 
 
