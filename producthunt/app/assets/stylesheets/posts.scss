@@ -62,7 +62,7 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 }
 
 .posts-container .root-header {
-  font-family: 'Bevan', cursive;
+  font-family: 'PT Sans Caption', sans-serif;
   font-size: 20px;
   font-weight: lighter;
   margin-bottom: 10px;
@@ -70,9 +70,10 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 
 .single-line-post .vote-container {
   background: #edeceb;
-  box-shadow: 0 1px 0 0 rgba(83,69,64,0.3),0 1px 1px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 1px 1px 1px rgba(83, 69, 64, 0.3), 0 1px 1px 0 rgba(0, 0, 0, 0.2);
   padding: 0px;
   margin-top: 5px;
+  width: 40px;
 }
 
 .vote-container {
