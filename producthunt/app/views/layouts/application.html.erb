@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Slabo+13px' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Passion+One:400,700|Bevan' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Exo:400,700|Passion+One:400,700|Bevan' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <nav class="top-bar" data-topbar role="navigation">
@@ -16,7 +16,7 @@
           <h1><a href="/"><i class="fa fa-users"></i>  BetaFeed</a></h1>
         </li>
       </ul>
-      <section class="top-bar-section">
+      <section class="top-bar-section nav-buttons">
         <ul class="right">
           <li><%= link_to "Submit Startup", new_post_path %></li>
           <% if current_user %>
