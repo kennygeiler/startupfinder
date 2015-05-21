@@ -1,24 +1,24 @@
-.feedback-container .feedback-user-container {
+.feedback-listing-container .feedback-user-container {
   margin-top: 15px;
   margin-left: 0px;
 }
 
-.feedback-container .feedback-comments-container {
+.feedback-listing-container .feedback-comments-container {
   margin-top: 20px;
 }
 
 .user-picture img {
   margin: auto;
   border-radius: 50%;
-  height: 40px;
+  height: 35px;
 }
 
 .user-name {
   padding-top: 10px;
-  height: 40px;
+  height: 35px;
 }
 
-.feedback-container .row {
+.feedback-listing-container .row {
   max-width: 90%;
   margin-left: 0px;
 }
@@ -27,10 +27,10 @@
   padding-left: 0px;
 }
 
-.feedback-container {
+.feedback-listing-container {
   max-width: 90%;
 }
 
-.feedback-comments-container .columns+.columns:last-child {
-  float: none;
+.feedback-comment .user-name {
+  padding-left: 0px;
 }
