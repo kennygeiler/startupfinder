@@ -18,18 +18,24 @@ class PostsController < ApplicationController
   end
 
   def index
-    @today_posts = Post.today.order(:cached_weighted_total => :desc)
-    @week_posts = Post.week.order(:cached_weighted_total => :desc)
-    @month_posts = Post.month.order(:cached_weighted_total => :desc)
     @posts = Post.order(:cached_votes_total => :desc)
+    if request.xhr?
+      render partial: 'post_listings', locals: {posts: @posts}, layout: false
+    end
   end
 
   def week
-    @week_posts = Post.week.order(:cached_weighted_total => :desc)
+    @posts = Post.week.order(:cached_votes_total => :desc)
+    if request.xhr?
+      render partial: 'post_listings', locals: {posts: @posts}, layout: false
+    end
   end
 
   def month
-    @month_posts = Post.month.order(:cached_weighted_total => :desc)
+    @posts = Post.month.order(:cached_votes_total => :desc)
+    if request.xhr?
+      render partial: 'post_listings', locals: {posts: @posts}, layout: false
+    end
   end
 
   def show
