@@ -1,12 +1,15 @@
 <div class="feedback-container">
   <% @post.feedbacks.each do |feedback| %>
-    <div class="feedback-question-container row">
-      <div class="feedback-picture medium-1 columns">
+    <div class="feedback-user-container row">
+      <div class="user-picture medium-1 columns">
         <%= image_tag(feedback.post.user.image) %>
       </div>
-      <div class="feedback-question">
-        <%= feedback.question %>
+      <div class="user-name">
+        <%= feedback.post.user.name %>
       </div>
+    </div>
+    <div class="feedback-question">
+      <%= feedback.question %>
     </div>
     <div class="feedback-comments-container">
       <% feedback.comments.order(:cached_votes_total => :desc).each do |comment| %>
