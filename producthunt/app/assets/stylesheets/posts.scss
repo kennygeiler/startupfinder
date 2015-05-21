@@ -67,6 +67,8 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 .posts-container .staff-picks-container {
   margin-top: 15px;
   padding-right: 25px;
+  border-right: 1px solid rgb(0, 154, 255);
+  border-right-style: dotted;
 }
 
 .posts-container .regular-picks-container {
@@ -115,7 +117,6 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
   margin-top: -50px;
   padding-bottom: 10px;
   border-top: 1px solid grey;
-  border-bottom: 1px solid grey;
   padding-top: 10px;
 }
 
