@@ -1,0 +1,73 @@
+<div class="posts-container row">
+  <%= link_to "Today", posts_path, class: "post-filter" %> <%= link_to "This Week", posts_week_path, class: "post-filter" %> <%= link_to "This Month", posts_month_path, class: "post-filter" %>
+  <div class="staff-picks-container medium-6 columns">
+    <div class="root-header">Staff Picks</div>
+    <div class="staff-picks-listing scrolling-listing">
+      <% posts.each do |post| %>
+        <% if post.staff_pick %>
+          <div class="single-line-post row" data-href="<%= post_path(post) %>">
+            <div class="medium-1 columns vote-container">
+              <div class="row">
+                <div class="medium-12 columns text-center"><%= link_to '<i class="fa fa-arrow-up"></i>'.html_safe, like_post_path(post), method: :put %></div>
+              </div>
+              <div class="row">
+                <div class="medium-12 columns post-score text-center"><%= post.score %></div>
+              </div>
+            </div>
+            <div class="medium-11 columns">
+              <div class="post-title-container row">
+                <div class="medium-12 columns">
+                  <span class="post-title"><%= link_to(post.title, post.link) %></span>
+                  <span>
+                    <% if post.hiring %>
+                      <i class="fa fa-usd" style="color:green"></i>
+                    <% end %>
+                  </span>
+                </div>
+              </div>
+              <div class="post-info row">
+                <div class="medium-10 columns post-description"><%= post.description %></div>
+                <div class="medium-2 columns picture"><%= image_tag(post.user.image) %></div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="regular-picks-container medium-6 columns">
+    <div class="root-header">Regular Posts</div>
+    <div class="regular-picks-listing scrolling-listing">
+      <% posts.each do |post| %>
+        <% if !post.staff_pick %>
+          <div class="single-line-post row" data-href="<%= post_path(post) %>">
+            <div class="medium-1 columns vote-container">
+              <div class="row">
+                <div class="medium-12 columns text-center"><%= link_to '<i class="fa fa-arrow-up"></i>'.html_safe, like_post_path(post), method: :put %></div>
+              </div>
+              <div class="row">
+                <div class="medium-12 columns post-score text-center"><%= post.score %></div>
+              </div>
+            </div>
+            <div class="medium-11 columns">
+              <div class="post-title-container row">
+                <div class="medium-12 columns">
+                  <span class="post-title"><%= link_to(post.title, post.link) %></span>
+                  <span>
+                    <% if post.hiring %>
+                      <i class="fa fa-usd" style="color:green"></i>
+                    <% end %>
+                  </span>
+                </div>
+              </div>
+              <div class="post-info row">
+                <div class="medium-10 columns post-description"><%= post.description %></div>
+                <div class="medium-2 columns picture"><%= image_tag(post.user.image) %></div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
