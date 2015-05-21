@@ -1,12 +1,26 @@
 html body {
-  font-family: 'Ropa Sans', sans-serif;
+  font-family: 'Slabo 13px', serif;
+  background-color: white;
+}
+
+.name h1 a {
+  font-size: 25px;
+  font-family: 'Bevan', cursive;
+}
+
+.name h1 a i {
+  color: rgb(82, 143, 245);
+}
+
+.top-bar {
+  background-color: transparent;
 }
 
 body .top-bar {
   max-width: 80%;
   margin: auto;
-  background-color: transparent;
-  border-bottom: 1px solid black
+  background: transparent;
+  margin-top: 10px;
 }
 
 body .top-bar .name h1 a {
@@ -24,15 +38,28 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 }
 
 .posts-container .root-header {
-  font-size: 25px;
-  border-bottom: 1.5px solid black;
-}
+  font-size: 30px;
+  font-weight: bolder;
+ }
 
 .single-line-post .vote-container {
   background: #edeceb;
   box-shadow: 0 1px 0 0 rgba(83,69,64,0.3),0 1px 1px 0 rgba(0,0,0,0.2);
   padding: 0px;
   margin-top: 5px;
+}
+
+.vote-container {
+  height: 35px;
+  width: 25px;
+}
+
+.post-score {
+  margin-top: -10px;
+}
+
+.fa-arrow-up {
+  font-size: 13px;
 }
 
 .posts-container .staff-picks-container {
@@ -49,7 +76,7 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 }
 
 .single-line-post:hover {
-  background-color: #fcf5e2;
+  background-color: #A3E0FF;
 }
 
 .scrolling-listing {
@@ -58,5 +85,24 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 }
 
 .post-title {
-  font-size: 20px;
+  font-size: 16px;
+}
+
+.post-title a {
+  color: black;
+  font-weight: bold;
+}
+
+.post-title:hover {
+  text-decoration: underline;
+}
+
+.post-description {
+  color: #7A7A7A;
+  font-size: 12px;
+}
+
+.single-line-post {
+  padding: 5px;
+  margin: 5px;
 }
