@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
+  get 'posts/today' => 'posts#today'
   get 'posts/week' => 'posts#week'
   get 'posts/month' => 'posts#month'
 
