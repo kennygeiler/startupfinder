@@ -5,21 +5,30 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <nav class="navbar navbar-pills">
-      <ul>
-        <li><%= link_to "Home", root_path %></li>
-        <% if current_user %>
-          <li><%= link_to "Profile", user_path(current_user) %></li>
-          <li><%= link_to "Submit Startup", new_post_path %></li>
-          <li><%= link_to "Log out", signout_path, :method => :delete %></li>
-        <% else %>
-          <li><%= link_to "Signin", login_path %></li>
-          <li><%= link_to "Signup", signup_path %></li>
-        <% end %>
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">Phunt</a></h1>
+        </li>
       </ul>
+      <section class="top-bar-section">
+        <ul class="right">
+          <li><%= link_to "Submit Startup", new_post_path %></li>
+          <% if current_user %>
+            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Log out", signout_path %></li>
+          <% else %>
+            <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
+          <% end %>
+        </ul>
+      </section>
     </nav>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
