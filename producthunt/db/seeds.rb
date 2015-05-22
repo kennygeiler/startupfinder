@@ -8,32 +8,32 @@ Post.create(title: 'turnupo', link: 'http://www.nppl.com', description: Faker::L
 
 
 10.times do
-  post = Post.create(title: Faker::Company.name, link: Faker::Internet.url, description: Faker::Lorem.sentence, hiring: true, staff_pick: true, user_id: 1, accepted: true)
+  post = Post.create(title: Faker::Company.name, link: Faker::Internet.url, description: Faker::Lorem.sentence, hiring: true, staff_pick: true, user_id: 3, accepted: true)
   5.times do
     feedback = post.feedbacks.create(question: Faker::Lorem.sentence)
     5.times do
-      feedback.comments.create(content: Faker::Lorem.paragraph, user_id: 1)
+      feedback.comments.create(content: Faker::Lorem.paragraph, user_id: 3)
     end
   end
 end
 
 10.times do
-  post = Post.create(title: Faker::Company.name, link: Faker::Internet.url, description: Faker::Lorem.sentence, hiring: false, staff_pick: true, user_id: 1, accepted: true)
+  post = Post.create(title: Faker::Company.name, link: Faker::Internet.url, description: Faker::Lorem.sentence, hiring: false, staff_pick: true, user_id: 3, accepted: true)
   5.times do
     feedback = post.feedbacks.create(question: Faker::Lorem.sentence)
     5.times do
-      feedback.comments.create(content: Faker::Lorem.paragraph, user_id: 1)
+      feedback.comments.create(content: Faker::Lorem.paragraph, user_id: 3)
     end
   end
 end
 
 
 10.times do
-  post = Post.create(title: Faker::Company.name, link: Faker::Internet.url, description: Faker::Lorem.sentence, hiring: true, staff_pick: false, user_id: 1, accepted: true)
+  post = Post.create(title: Faker::Company.name, link: Faker::Internet.url, description: Faker::Lorem.sentence, hiring: true, staff_pick: false, user_id: 3, accepted: true)
   5.times do
     feedback = post.feedbacks.create(question: Faker::Lorem.sentence)
     5.times do
-      feedback.comments.create(content: Faker::Lorem.paragraph, user_id: 1)
+      feedback.comments.create(content: Faker::Lorem.paragraph, user_id: 3)
     end
   end
 end
