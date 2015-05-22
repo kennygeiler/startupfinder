@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'comments/new'
   get 'users/new'
+  get 'users/master' => 'users#master'
 
   get 'sessions/new'
   get    'signup'  => 'users#new'
