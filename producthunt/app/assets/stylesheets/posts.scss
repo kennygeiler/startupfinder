@@ -1,5 +1,5 @@
 html body {
-  font-family: 'Source Serif Pro', serif;
+  font-family: 'Bitter', serif;
   background-color: white;
 }
 
@@ -47,7 +47,7 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 .filter {
   margin-top: -50px;
   padding-bottom: 10px;
-  border-top: 1px solid grey;
+  border-top: 1px solid rgb(210, 210, 210);
   padding-top: 10px;
 }
 
@@ -166,4 +166,13 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 .new-post-header {
   margin-top: 30px;
   margin-left: 100px;
+}
+
+.post-score {
+  font-size: 12px;
+  padding-top: 6px;
+}
+
+.post-description {
+  font-size: 14px;
 }
