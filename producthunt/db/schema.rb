@@ -77,9 +77,10 @@ ActiveRecord::Schema.define(version: 20150520194428) do
     t.string   "name"
     t.string   "image"
     t.string   "token"
+    t.boolean  "admin",      default: false
     t.datetime "expires_at"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "karma",      default: 0
   end
 
