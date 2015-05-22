@@ -1,7 +1,7 @@
 <%= form_for [post, feedback, comment] do |f| %>
-  Comment: <%= f.text_field :content %><br />
+  <%= f.text_area :content, rows: 7, class: "comment-textarea" %>
   <%= f.hidden_field :post_id, :value => post.id %>
   <%= f.hidden_field :feedback_id, :value => feedback.id %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.submit "Add Comment" %>
+  <%= f.submit "Add Comment", class: "success button tiny comment-submit" %>
 <% end %>
