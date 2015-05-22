@@ -1,0 +1,25 @@
+<div class="edit-post">
+    <%= form_for(@post) do |f| %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control', placeholder: @post.title %>
+
+      <%= f.label :link %>
+      <%= f.text_field :link, class: 'form-control' %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description, class: 'form-control' %>
+
+      <%= f.label :accepted %>
+      <%= f.text_field :accepted, class: 'form-control' %>
+
+      <%= f.label :staff_pick %>
+      <%= f.text_field :staff_pick, class: 'form-control' %>
+
+      <%= f.label :user_id %>
+      <%= f.text_field :user_id, class: 'form-control' %>
+
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+</div>
+
