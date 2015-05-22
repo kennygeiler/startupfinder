@@ -14,15 +14,15 @@ $(document).ready(function() {
     event.preventDefault();
 
     $form = $(event.target);
-
-    debugger
+    $destination = 
 
     $.ajax({
       url: $form.attr('action'),
       type: 'POST',
       data: $form.serialize()
     }).then(function(response) {
-      debugger
+      $form.closest('.feedback-container').children('.feedback-comments-container').append(response);
+      $form.trigger('reset')
     })
   })
 
