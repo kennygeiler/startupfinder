@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :description
       t.boolean :hiring, default: false
       t.boolean :staff_pick, default: false
+      t.boolean :accepted, default: false
       t.references :user
       t.timestamps null: false
     end
