@@ -6,8 +6,24 @@ $(document).ready(function() {
     event.preventDefault();
 
     $target = $(event.target);
-    $target.closest('.feedback-container').children('.new-comment-form').show()
+    $target.closest('.feedback-container').children('.new-comment-form').show();
     $target.hide();
+  })
+
+  $('.container').on('submit', '.new_comment', function(event) {
+    event.preventDefault();
+
+    $form = $(event.target);
+
+    debugger
+
+    $.ajax({
+      url: $form.attr('action'),
+      type: 'POST',
+      data: $form.serialize()
+    }).then(function(response) {
+      debugger
+    })
   })
 
   $('.container').on('click', '.comment-upvote-button', function(event) {
