@@ -45,7 +45,7 @@ $(document).ready(function() {
       data: $form.serialize()
     }).then(function(response) {
       $form.closest('.feedback-listing-container').children('.feedback-listing').append(response);
-      debugger
+      $form.closest('.feedback-listing-container').find('.feedback-container').last().children('.new-comment-form').hide();
       $form.trigger('reset')
     })
   })

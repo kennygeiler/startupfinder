@@ -1,5 +1,5 @@
 <%= form_for [post, feedback] do |f| %>
-  <%= f.text_field :question %>
+  <%= f.text_area :question, rows: 7, class: "feedback-textarea"%>
   <%= f.hidden_field :post_id, :value => post.id %>
-  <%= f.submit "Add Question" %>
+  <%= f.submit "Add Question", class: "success button tiny comment-submit" %>
 <% end %>
