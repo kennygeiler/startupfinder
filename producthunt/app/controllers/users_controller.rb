@@ -20,7 +20,11 @@ class UsersController < ApplicationController
   end
 
   def master
-    @accept_posts = Post.where(:accepted => false)
+    if current_user.admin
+      @accept_posts = Post.where(:accepted => false)
+    else
+      redirect_to root_path
+    end
   end
 
   private
