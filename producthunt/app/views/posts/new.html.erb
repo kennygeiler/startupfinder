@@ -1,10 +1,13 @@
-<h2>Submit your Startup</h2>
+<h2 class="new-post-header">Submit your Startup</h2>
 
 <%= form_for @post do |f| %>
   Title: <%= f.text_field :title %><br />
   Link: <%= f.text_field :link %><br />
   Description: <%= f.text_field :description %><br />
-  Hiring? <%= f.check_box :hiring, {}, 'true', 'false' %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.submit %>
+  Contact Email: <%= f.text_field :contact_email %><br />
+  Hiring? (Full Time or Internships) <%= f.check_box :hiring, {}, 'true', 'false' %>
+  <%= f.hidden_field :user_id, :value => current_user.id %> <br>
+  <%= f.submit "Submit" %>
 <% end %>
+
+
