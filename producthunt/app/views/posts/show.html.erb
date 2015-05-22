@@ -17,28 +17,7 @@
       </div>
       <div class="feedback-comments-container row">
         <% feedback.comments.order(:cached_votes_total => :desc).each do |comment| %>
-          <div class="feedback-comment medium-offset-1 medium-11 columns">
-            <div class="feedback-user-container row">
-              <div class="user-picture medium-1 columns text-center">
-                <%= image_tag(comment.user.image) %>
-              </div>
-              <div class="user-name medium-11 columns">
-                <%= comment.user.name %>
-                <span data-user-id="<%= comment.user_id %>" class="user-karma alert round radius label"><%= comment.user.karma %></span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="comment medium-offset-1 medium-11 columns">
-                <%= comment.content %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="comment-upvote medium-offset-1 medium-11 columns">
-                <%= link_to "<i class='comment-upvote-button fa fa-arrow-up'></i>".html_safe, like_post_feedback_comment_path(@post, feedback, comment), method: :put %>
-                <span class="comment-score"><%= comment.score %></span>
-              </div>
-            </div>
-          </div>
+          <%= render partial: 'comments/comment', locals: {post: @post, feedback: feedback, comment: comment} %>
         <% end %>
       </div>
       <div class="row">
