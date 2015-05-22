@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def master
+    @accept_posts = Post.where(:accepted => false)
+  end
+
   private
 
   def user_params

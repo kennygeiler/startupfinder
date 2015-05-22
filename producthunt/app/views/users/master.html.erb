@@ -1,0 +1,9 @@
+<div class="accept-posts">
+  <% if current_user == User.find(1) %>
+  <%= @accept_posts.each do |post| %>
+    <%= post.title %> | <%= post.description %> | <%= post.link %> | <%= link_to "Update", edit_post_path(post) %> <br> <br>
+  <% end %>
+  <% else %>
+    "hello"
+  <% end %>
+</div>
