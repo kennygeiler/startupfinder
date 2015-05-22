@@ -9,7 +9,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to post_path(@comment.post_id)
+      if request.xhr?
+        render partial: 'comment', locals: {post: @comment.post, feedback: @comment.feedback, comment: @comment}
+      else
+        redirect_to post_path(@comment.post_id)
+      end
     else
       render 'new'
     end

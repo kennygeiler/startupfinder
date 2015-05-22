@@ -1,56 +1,15 @@
 <div class="feedback-listing-container">
-  <% @post.feedbacks.each do |feedback| %>
-    <div class="feedback-container">
-      <div class="feedback-user-container row">
-        <div class="user-picture medium-1 columns text-right">
-          <%= image_tag(feedback.post.user.image) %>
-        </div>
-        <div class="user-name medium-11 columns">
-          <%= feedback.post.user.name %>
-          <span data-user-id="<%= feedback.post.user_id %>" class="user-karma alert round radius label"><%= feedback.post.user.karma %></span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="feedback-question medium-offset-1 medium-11 columns">
-          <%= feedback.question %>
-        </div>
-      </div>
-      <div class="feedback-comments-container row">
-        <% feedback.comments.order(:cached_votes_total => :desc).each do |comment| %>
-          <div class="feedback-comment medium-offset-1 medium-11 columns">
-            <div class="feedback-user-container row">
-              <div class="user-picture medium-1 columns text-center">
-                <%= image_tag(comment.user.image) %>
-              </div>
-              <div class="user-name medium-11 columns">
-                <%= comment.user.name %>
-                <span data-user-id="<%= comment.user_id %>" class="user-karma alert round radius label"><%= comment.user.karma %></span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="comment medium-offset-1 medium-11 columns">
-                <%= comment.content %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="comment-upvote medium-offset-1 medium-11 columns">
-                <%= link_to "<i class='comment-upvote-button fa fa-arrow-up'></i>".html_safe, like_post_feedback_comment_path(@post, feedback, comment), method: :put %>
-                <span class="comment-score"><%= comment.score %></span>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      <div class="row">
-        <div class="new-comment medium-offset-1 columns">
-          <%= link_to "New comment", new_post_feedback_comment_path(@post, feedback) %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  <div class="new-feedback">
-    <% if current_user.id == @post.user_id %>
-      <%= link_to "Add new Feedback Question", new_post_feedback_path(@post) %>
+  <div class="feedback-listing">
+    <% @post.feedbacks.each do |feedback| %>
+      <%= render partial: 'feedbacks/feedback', locals: {post: @post, feedback: feedback} %>
     <% end %>
   </div>
+  <% if current_user.id == @post.user_id %>
+    <div class="new-feedback">
+      <%= link_to "Add new Feedback Question", new_post_feedback_path(@post), class: "new-feedback-button" %>
+    </div>
+    <div class="new-feedback-form">
+      <%= render partial: 'feedbacks/form', locals: {post: @post, feedback: Feedback.new} %>
+    </div>
+  <% end %>
 </div>
