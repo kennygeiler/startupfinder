@@ -1,4 +1,5 @@
 <div class="edit-post">
+  <% if current_user == User.find(1) %>
     <%= form_for(@post) do |f| %>
 
       <%= f.label :title %>
@@ -20,6 +21,9 @@
       <%= f.text_field :user_id, class: 'form-control' %>
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+    <% else %>
+      <%= "Hello" %>
     <% end %>
 </div>
 
