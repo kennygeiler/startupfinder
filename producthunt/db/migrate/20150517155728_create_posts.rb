@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title, null: false
       t.string :link, null: false
       t.string :description
+      t.string :contact_email
       t.boolean :hiring, default: false
       t.boolean :staff_pick, default: false
       t.boolean :accepted, default: false
