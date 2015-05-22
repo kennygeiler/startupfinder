@@ -23,7 +23,7 @@
               </div>
               <div class="user-name medium-11 columns">
                 <%= comment.user.name %>
-                <span class="alert round radius label"><%= feedback.post.user.karma %></span>
+                <span data-user-id="<%= comment.user_id %>" class="user-karma alert round radius label"><%= comment.user.karma %></span>
               </div>
             </div>
             <div class="row">
