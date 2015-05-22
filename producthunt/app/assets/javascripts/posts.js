@@ -13,7 +13,9 @@ $(document).ready(function() {
     var $target = $(event.target);
 
     $.get($target.attr('href'), function(response) {
-      $('.container').html(response)
+      $('.post-listings-container').html(response);
+      $('.post-filter').removeClass('active');
+      $target.addClass('active');
     });
   })
 
