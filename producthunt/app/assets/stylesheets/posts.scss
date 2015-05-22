@@ -1,23 +1,156 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-.not-staff-pick-post {
-  float: right;
-  margin-top: 50px;
-  clear: right;
+html body {
+  font-family: 'Source Serif Pro', serif;
+  background-color: white;
 }
 
-.staff-pick-post {
-  margin-top: 50px;
-  float: left;
-  clear: left;
+.name h1 a {
+  color: rgb(65, 156, 226);
+  font-size: 30px;
+  font-family: 'Bevan', cursive;
 }
 
-.root-header {
-  text-align: center;
+.name h1 a i {
+  color: #42402C;
 }
 
-#right-header {
-  border-left: 1px solid black;
+.top-bar {
+  background-color: transparent;
+}
+
+body .top-bar {
+  max-width: 90%;
+  margin: auto;
+  background: transparent;
+  margin-top: 10px;
+}
+
+body .top-bar .name h1 a {
+  color: rgb(65, 156, 226);
+}
+
+nav .top-bar-section li:not(.has-form) a:not(.button) {
+  background-color: white;
+  color: rgb(65, 156, 226);
+  font-size: 30px;
+}
+
+.container .posts-container {
+  max-width: 90%;
+}
+
+.container .filter-links {
+  padding-left: 0.9375rem;
+  max-width: 90%;
+  margin: 10px auto 0
+}
+
+.filter {
+  margin-top: -50px;
+  padding-bottom: 10px;
+  border-top: 1px solid grey;
+  padding-top: 10px;
+}
+
+.filter a {
+  padding: 5px;
+  color: #727272;
+  font-family: 'Exo', sans-serif;
+  font-weight: 400;
+}
+
+.filter a:hover {
+  background-color: #EBEBEB;
+  padding-top: 11px;
+}
+
+.posts-container .root-header {
+  font-family: 'PT Sans Caption', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+ }
+
+.single-line-post .vote-container {
+  background: #edeceb;
+  box-shadow: 0 1px 1px 1px rgba(83, 69, 64, 0.3), 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+  padding: 0px;
+  margin-top: 5px;
+  width: 40px;
+  height: 40px;
+}
+
+.vote-container {
+  height: 35px;
+  width: 25px;
+}
+
+.post-score {
+  margin-top: -10px;
+  padding: 3px;
+}
+
+.fa-arrow-up {
+  font-size: 13px;
+}
+
+.posts-container .staff-picks-container {
+  margin-top: 15px;
+  padding-right: 25px;
+  border-right: 1px solid rgb(0, 154, 255);
+  border-right-style: dotted;
+}
+
+.posts-container .regular-picks-container {
+  margin-top: 15px;
+  padding-left: 25px;
+}
+
+.row .scrolling-listing .single-line-post {
+  width: 100%;
+  margin: 0px;
+}
+
+.single-line-post:hover {
+  background-color: #E8F4FA;
+}
+
+.scrolling-listing {
+    max-height: 650px;
+    overflow-y: scroll;
+}
+
+.post-title {
+  font-size: 20px;
+}
+
+.post-title a {
+  color: black;
+  font-weight: bold;
+}
+
+.post-title:hover {
+  text-decoration: underline;
+}
+
+.post-description {
+  color: #7A7A7A;
+  font-size: 12px;
+}
+
+.single-line-post {
+  padding: 5px;
+  margin: 5px;
+}
+
+.nav-arrow {
+  color: lightgreen;
+}
+
+.edit-post {
+  margin-left: 40px;
+}
+
+.fa-usd {
+  font-size: 13px;
+  padding: 5px;
 }

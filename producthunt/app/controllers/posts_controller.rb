@@ -18,12 +18,35 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.order(:cached_votes_total => :desc)
+    if request.xhr?
+      render partial: 'post_listings', locals: {posts: @posts}, layout: false
+    end
+  end
+
+  def today
+    @posts = Post.today.order(:cached_votes_total => :desc)
+    if request.xhr?
+      render partial: 'post_listings', locals: {posts: @posts}, layout: false
+    end
+  end
+
+  def week
+    @posts = Post.week.order(:cached_votes_total => :desc)
+    if request.xhr?
+      render partial: 'post_listings', locals: {posts: @posts}, layout: false
+    end
+  end
+
+  def month
+    @posts = Post.month.order(:cached_votes_total => :desc)
+    if request.xhr?
+      render partial: 'post_listings', locals: {posts: @posts}, layout: false
+    end
   end
 
   def show
     @post = Post.find(params[:id])
-    #this will be the feedback area
   end
 
   def upvote
@@ -31,7 +54,7 @@ class PostsController < ApplicationController
     if current_user.voted_for? @post
       redirect_to posts_path
     else
-      @post.upvote_by current_user, :vote_weight => current_user.vote_weight_score
+      @post.upvote_by current_user
       if current_user.id == @post.user_id
         @post.user.increase_karma(10)
         redirect_to posts_path
@@ -42,10 +65,25 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    if current_user.admin
+      @post = Post.find(params[:id])
+    else
+      redirect_to root_path
+    end
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update_attributes(post_params)
+      redirect_to posts_path
+    end
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :link, :user_id, :hiring, :staff_pick)
+    params.require(:post).permit(:title, :link, :user_id, :hiring, :staff_pick, :description, :accepted)
   end
 
 end

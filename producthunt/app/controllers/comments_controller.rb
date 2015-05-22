@@ -18,15 +18,27 @@ class CommentsController < ApplicationController
   def upvote
     @comment = Comment.find(params[:id])
     if current_user.voted_for? @comment
-      redirect_to post_path(@comment.post_id)
+      if request.xhr?
+        render partial: 'vote_count', locals: {comment: @comment}, layout: false
+      else
+        redirect_to post_path(@comment.feedback.post)
+      end
     else
-      @comment.upvote_by current_user, :vote_weight => current_user.vote_weight_score
+      @comment.upvote_by current_user
       if current_user.id == @comment.feedback.post.user_id
         @comment.user.increase_karma(10)
-        redirect_to post_path(@comment.post_id)
+        if request.xhr?
+          render partial: 'vote_count', locals: {comment: @comment}, layout: false
+        else
+          redirect_to post_path(@comment.feedback.post)
+        end
       else
         @comment.user.increase_karma(1)
-        redirect_to post_path(@comment.post_id)
+        if request.xhr?
+          render partial: 'vote_count', locals: {comment: @comment}, layout: false
+        else
+          redirect_to post_path(@comment.feedback.post)
+        end
       end
     end
   end

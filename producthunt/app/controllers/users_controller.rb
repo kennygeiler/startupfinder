@@ -19,10 +19,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def master
+    if current_user.admin
+      @accept_posts = Post.where(:accepted => false)
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :credentials)
+    params.require(:user).permit(:username, :email, :password)
   end
 
 end

@@ -11,27 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519132218) do
-
-  create_table "badges_sashes", force: :cascade do |t|
-    t.integer  "badge_id"
-    t.integer  "sash_id"
-    t.boolean  "notified_user", default: false
-    t.datetime "created_at"
-  end
-
-  add_index "badges_sashes", ["badge_id", "sash_id"], name: "index_badges_sashes_on_badge_id_and_sash_id"
-  add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id"
-  add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id"
+ActiveRecord::Schema.define(version: 20150520194428) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
     t.integer  "feedback_id"
     t.integer  "post_id"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "cached_votes_total",      default: 0
+    t.integer  "cached_votes_score",      default: 0
+    t.integer  "cached_votes_up",         default: 0
+    t.integer  "cached_votes_down",       default: 0
+    t.integer  "cached_weighted_score",   default: 0
+    t.integer  "cached_weighted_total",   default: 0
+    t.float    "cached_weighted_average", default: 0.0
   end
+
+  add_index "comments", ["cached_votes_down"], name: "index_comments_on_cached_votes_down"
+  add_index "comments", ["cached_votes_score"], name: "index_comments_on_cached_votes_score"
+  add_index "comments", ["cached_votes_total"], name: "index_comments_on_cached_votes_total"
+  add_index "comments", ["cached_votes_up"], name: "index_comments_on_cached_votes_up"
+  add_index "comments", ["cached_weighted_average"], name: "index_comments_on_cached_weighted_average"
+  add_index "comments", ["cached_weighted_score"], name: "index_comments_on_cached_weighted_score"
+  add_index "comments", ["cached_weighted_total"], name: "index_comments_on_cached_weighted_total"
 
   create_table "feedbacks", force: :cascade do |t|
     t.string   "question"
@@ -40,64 +44,44 @@ ActiveRecord::Schema.define(version: 20150519132218) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "merit_actions", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "action_method"
-    t.integer  "action_value"
-    t.boolean  "had_errors",    default: false
-    t.string   "target_model"
-    t.integer  "target_id"
-    t.text     "target_data"
-    t.boolean  "processed",     default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "merit_activity_logs", force: :cascade do |t|
-    t.integer  "action_id"
-    t.string   "related_change_type"
-    t.integer  "related_change_id"
-    t.string   "description"
-    t.datetime "created_at"
-  end
-
-  create_table "merit_score_points", force: :cascade do |t|
-    t.integer  "score_id"
-    t.integer  "num_points", default: 0
-    t.string   "log"
-    t.datetime "created_at"
-  end
-
-  create_table "merit_scores", force: :cascade do |t|
-    t.integer "sash_id"
-    t.string  "category", default: "default"
-  end
-
   create_table "posts", force: :cascade do |t|
-    t.string   "title",                      null: false
-    t.string   "link",                       null: false
-    t.boolean  "hiring",     default: false
-    t.boolean  "staff_pick", default: false
+    t.string   "title",                                   null: false
+    t.string   "link",                                    null: false
+    t.string   "description"
+    t.boolean  "hiring",                  default: false
+    t.boolean  "staff_pick",              default: false
+    t.boolean  "accepted",                default: false
     t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.integer  "cached_votes_total",      default: 0
+    t.integer  "cached_votes_score",      default: 0
+    t.integer  "cached_votes_up",         default: 0
+    t.integer  "cached_votes_down",       default: 0
+    t.integer  "cached_weighted_score",   default: 0
+    t.integer  "cached_weighted_total",   default: 0
+    t.float    "cached_weighted_average", default: 0.0
   end
 
-  create_table "sashes", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "posts", ["cached_votes_down"], name: "index_posts_on_cached_votes_down"
+  add_index "posts", ["cached_votes_score"], name: "index_posts_on_cached_votes_score"
+  add_index "posts", ["cached_votes_total"], name: "index_posts_on_cached_votes_total"
+  add_index "posts", ["cached_votes_up"], name: "index_posts_on_cached_votes_up"
+  add_index "posts", ["cached_weighted_average"], name: "index_posts_on_cached_weighted_average"
+  add_index "posts", ["cached_weighted_score"], name: "index_posts_on_cached_weighted_score"
+  add_index "posts", ["cached_weighted_total"], name: "index_posts_on_cached_weighted_total"
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                       null: false
-    t.string   "username",                    null: false
-    t.string   "password_digest",             null: false
-    t.text     "credentials"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "sash_id"
-    t.integer  "level",           default: 0
-    t.integer  "karma",           default: 0
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "image"
+    t.string   "token"
+    t.boolean  "admin",      default: false
+    t.datetime "expires_at"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "karma",      default: 0
   end
 
   create_table "votes", force: :cascade do |t|

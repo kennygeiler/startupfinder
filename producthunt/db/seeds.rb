@@ -1,14 +1,48 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-Post.create(title: 'yo', link: 'google.com', hiring: false, staff_pick: true, user_id: 1)
-Post.create(title: 'guuco', link: 'yahoo.com', hiring: true, staff_pick: false, user_id: 1)
-Post.create(title: 'yolo', link: 'face.com', hiring: false, staff_pick: false, user_id: 2)
-Post.create(title: 'turnupo', link: 'nppl.com', hiring: true, staff_pick: true, user_id: 2)
+require 'faker'
 
-User.create(username: 'kenny', email: 'kenny@aol.com', password: '123')
-User.create(username: 'john', email: 'john@aol.com', password: '123')
+Post.create(title: 'yo', link: 'http://www.google.com', description: Faker::Lorem.sentence, hiring: false, staff_pick: true, user_id: 1)
+Post.create(title: 'guuco', link: 'http://www.yahoo.com', description: Faker::Lorem.sentence, hiring: true, staff_pick: false, user_id: 1)
+Post.create(title: 'yolo', link: 'http://www.face.com', description: Faker::Lorem.sentence, hiring: false, staff_pick: false, user_id: 2)
+Post.create(title: 'turnupo', link: 'http://www.nppl.com', description: Faker::Lorem.sentence, hiring: true, staff_pick: true, user_id: 2)
+
+
+
+10.times do
+  post = Post.create(title: Faker::Company.name, link: Faker::Internet.url, description: Faker::Lorem.sentence, hiring: true, staff_pick: true, user_id: 1, accepted: true)
+  5.times do
+    feedback = post.feedbacks.create(question: Faker::Lorem.sentence)
+    5.times do
+      feedback.comments.create(content: Faker::Lorem.paragraph, user_id: 1)
+    end
+  end
+end
+
+10.times do
+  post = Post.create(title: Faker::Company.name, link: Faker::Internet.url, description: Faker::Lorem.sentence, hiring: false, staff_pick: true, user_id: 1, accepted: true)
+  5.times do
+    feedback = post.feedbacks.create(question: Faker::Lorem.sentence)
+    5.times do
+      feedback.comments.create(content: Faker::Lorem.paragraph, user_id: 1)
+    end
+  end
+end
+
+
+10.times do
+  post = Post.create(title: Faker::Company.name, link: Faker::Internet.url, description: Faker::Lorem.sentence, hiring: true, staff_pick: false, user_id: 1, accepted: true)
+  5.times do
+    feedback = post.feedbacks.create(question: Faker::Lorem.sentence)
+    5.times do
+      feedback.comments.create(content: Faker::Lorem.paragraph, user_id: 1)
+    end
+  end
+end
+
+10.times do
+  post = Post.create(title: Faker::Company.name, link: Faker::Internet.url, description: Faker::Lorem.sentence, hiring: false, staff_pick: false, user_id: 1, accepted: false)
+end
+
+
+
+User.create(name: 'kenny')
+User.create(name: 'john')
