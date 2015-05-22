@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   $('.new-comment-form').hide();
+  $('.new-feedback-form').hide();
 
   $('.container').on('click', '.new-comment-button', function(event) {
     event.preventDefault();
@@ -24,6 +25,14 @@ $(document).ready(function() {
       $form.closest('.feedback-container').children('.feedback-comments-container').append(response);
       $form.trigger('reset')
     })
+  })
+
+  $('.container').on('click', '.new-feedback-button', function(event) {
+    event.preventDefault();
+
+    $target = $(event.target);
+    $target.closest('.feedback-listing-container').children('.new-feedback-form').show();
+    $target.hide();
   })
 
   $('.container').on('click', '.comment-upvote-button', function(event) {

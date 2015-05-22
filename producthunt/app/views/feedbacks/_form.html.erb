@@ -1,5 +1,5 @@
-<%= form_for [@post, @feedback] do |f| %>
-  Question: <%= f.text_field :question %><br />
-  <%= f.hidden_field :post_id, :value => @post.id %>
+<%= form_for [post, feedback] do |f| %>
+  <%= f.text_field :question %>
+  <%= f.hidden_field :post_id, :value => post.id %>
   <%= f.submit "Add Question" %>
 <% end %>
