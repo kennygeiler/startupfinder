@@ -6,7 +6,8 @@
           <%= image_tag(feedback.post.user.image) %>
         </div>
         <div class="user-name medium-11 columns">
-          <%= feedback.post.user.name %> <%= feedback.post.user.karma %>
+          <%= feedback.post.user.name %>
+          <span data-user-id="<%= feedback.post.user_id %>" class="user-karma alert round radius label"><%= feedback.post.user.karma %></span>
         </div>
       </div>
       <div class="row">
