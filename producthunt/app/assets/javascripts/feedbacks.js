@@ -1,5 +1,15 @@
 $(document).ready(function() {
 
+  $('.new-comment-form').hide();
+
+  $('.container').on('click', '.new-comment-button', function(event) {
+    event.preventDefault();
+
+    $target = $(event.target);
+    $target.closest('.feedback-container').children('.new-comment-form').show()
+    $target.hide();
+  })
+
   $('.container').on('click', '.comment-upvote-button', function(event) {
 
     event.preventDefault();
