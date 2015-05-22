@@ -18,13 +18,12 @@
       </ul>
       <section class="top-bar-section nav-buttons">
         <ul class="right">
-          <li>
-            <%= link_to new_post_path do %>
-              <i class="fa fa-plus-circle"></i>
-            <% end %>
-          </li>
           <% if current_user %>
-            <!-- <li><%= link_to "Profile", user_path(current_user) %></li> -->
+            <li>
+              <%= link_to new_post_path do %>
+                <i class="fa fa-plus-circle"></i>
+              <% end %>
+            </li>
             <li>
               <%= link_to signout_path do %>
                 <i class="fa fa-sign-out"></i>
