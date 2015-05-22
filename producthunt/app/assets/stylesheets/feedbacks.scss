@@ -1,3 +1,40 @@
-// Place all the styles related to the Feedbacks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.feedback-listing-container .feedback-user-container {
+  margin-top: 15px;
+  margin-left: 0px;
+}
+
+.feedback-listing-container .feedback-comments-container {
+  margin-top: 20px;
+}
+
+.user-picture img {
+  margin: auto;
+  border-radius: 50%;
+  height: 35px;
+}
+
+.user-name {
+  padding-top: 10px;
+  height: 35px;
+}
+
+.feedback-listing-container .row {
+  max-width: 90%;
+  margin-left: 0px;
+}
+
+.row .comment {
+  padding-left: 0px;
+}
+
+.row .comment-upvote {
+  padding-left: 0px;
+}
+
+.feedback-listing-container {
+  max-width: 90%;
+}
+
+.feedback-comment .user-name {
+  padding-left: 0px;
+}
