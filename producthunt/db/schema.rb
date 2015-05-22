@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150520194428) do
     t.string   "title",                                   null: false
     t.string   "link",                                    null: false
     t.string   "description"
+    t.string   "contact_email"
     t.boolean  "hiring",                  default: false
     t.boolean  "staff_pick",              default: false
     t.boolean  "accepted",                default: false
