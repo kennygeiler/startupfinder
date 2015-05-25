@@ -5,8 +5,9 @@ $(document).ready(function() {
   $('.container').on('click', '.single-line-post', function(event) {
     var $target = $(event.target);
     var $post = $target.closest('.single-line-post')
+    $('#post-modal').html('');
 
-    window.location = $post.data('href');
+    $('#post-modal').foundation('reveal','open', $post.data('href'));
   });
 
   $('.container').on('click', '.post-filter', function(event) {

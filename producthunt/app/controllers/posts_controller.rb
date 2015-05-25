@@ -47,6 +47,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    if request.xhr?
+      render layout: "container_only"
+    end
   end
 
   def upvote
