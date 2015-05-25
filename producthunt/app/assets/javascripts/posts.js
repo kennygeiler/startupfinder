@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+  $(document).foundation();
+
   $('.container').on('click', '.single-line-post', function(event) {
     var $target = $(event.target);
     var $post = $target.closest('.single-line-post')

@@ -13,7 +13,7 @@
         <span class="post-title"><%= link_to(post.title, post.link) %></span>
         <span>
           <% if post.hiring %>
-            <i class="fa fa-usd" style="color:green"></i>
+            <span data-tooltip class="has-tip tip-right" title="Contact Email: <%= post.contact_email %>"><i class="fa fa-usd" style="color:green"></i></span>
           <% else %>
             <i class="fa fa-usd" style="color:grey"></i>
           <% end %>
