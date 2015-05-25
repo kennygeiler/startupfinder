@@ -1,1 +1,9 @@
-<%= render partial: 'post_listings', locals: {posts: @posts} %>
+<div class="filter-links filter">
+  <%= link_to "ALL", posts_path, class: "post-filter all-filter active" %>
+  <%= link_to "TODAY", posts_today_path, class: "post-filter today-filter" %>
+  <%= link_to "WEEK", posts_week_path, class: "post-filter week-filter" %>
+  <%= link_to "MONTH", posts_month_path, class: "post-filter month-filter" %>
+</div>
+<div class="post-listings-container">
+  <%= render partial: 'post_listings', locals: {posts: @posts} %>
+</div>

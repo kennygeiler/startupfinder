@@ -1,0 +1,37 @@
+nav .top-bar-section ul .navbar-links {
+  background: white;
+}
+
+nav .top-bar-section ul .navbar-links:hover {
+  background: white;
+  background-color: #E8F4FA;
+  color: #419ce2;
+  border-radius: 18px;
+}
+
+html body .top-bar .top-bar-section .navbar-links .new-post-link:hover {
+  background-color: #E8F4FA;
+  background: #E8F4FA;
+  color: #419ce2;
+  border-radius: 18px;
+}
+
+html body .top-bar .top-bar-section .navbar-links .fa-plus-circle:hover {
+  color: #419ce2;
+}
+
+html body .top-bar .top-bar-section .navbar-links .signout-link:hover {
+  background-color: #E8F4FA;
+  background: #E8F4FA;
+  color: #419ce2;
+  border-radius: 18px;
+}
+
+html body .top-bar .top-bar-section .navbar-links .fa-sign-out:hover {
+  color: #419ce2;
+}
+
+nav .top-bar-section .navbar-karma {
+  background: white;
+  font-size: 28px;
+}

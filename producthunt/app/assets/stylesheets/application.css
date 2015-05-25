@@ -13,4 +13,5 @@
  *= require_tree .
  *= require_self
  *= require foundation.min.css
+ *= require fc-webicons.css
  */
