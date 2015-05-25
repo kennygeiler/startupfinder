@@ -47,6 +47,10 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    if request.xhr?
+      puts "INSIDE THE XHR"
+      render partial: 'modal_show', layout: false
+    end
   end
 
   def upvote
