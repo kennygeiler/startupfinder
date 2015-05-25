@@ -17,6 +17,16 @@ html body {
   background-color: transparent;
 }
 
+html body .top-bar .top-bar-section li .new-post-link:hover {
+  background-color: #E8F4FA;
+  background: #E8F4FA;
+  color: #419ce2;
+}
+
+html body .top-bar .top-bar-section li .fa-plus-circle:hover {
+  color: #419ce2;
+}
+
 body .top-bar {
   max-width: 90%;
   margin: auto;
