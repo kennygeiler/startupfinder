@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require foundation.min.js
+//= require_tree ../../../vendor/assets/javascripts/foundation/
