@@ -6,7 +6,7 @@ $(document).ready(function() {
     var $target = $(event.target);
     var $post = $target.closest('.single-line-post')
 
-    window.location = $post.data('href');
+    $('#post-modal').foundation('reveal','open', $post.data('href'))
   });
 
   $('.container').on('click', '.post-filter', function(event) {
