@@ -22,4 +22,21 @@ $(document).ready(function() {
     });
   })
 
+  $('.container').on('click', '.post-upvote-button', function(event) {
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    var $target = $(event.target);
+    var path = $target.closest('.post-upvote').children('a').attr('href');
+    var $voteDestination = $target.closest('.post-upvote').children('.post-score')
+
+    $.ajax({
+      url: path,
+      type: 'PUT'
+    }).then(function(response) {
+      $voteDestination.html(response);
+    })
+  })
+
 });
