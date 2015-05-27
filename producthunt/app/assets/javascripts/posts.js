@@ -22,7 +22,7 @@ $(document).ready(function() {
     });
   })
 
-  $('.container').on('click', '.post-upvote-button', function(event) {
+  $('.container').on('click', '.post-upvote', function(event) {
     event.preventDefault();
     event.stopPropagation();
 
