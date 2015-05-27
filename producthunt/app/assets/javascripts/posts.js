@@ -48,4 +48,14 @@ $(document).ready(function() {
     })
   })
 
+  $('.container').on('mouseenter', '.post-upvote', function(event) {
+    $target = $(event.target);
+    $target.find('.post-upvote-button').css("color", "#008CBA")
+  })
+
+  $('.container').on('mouseleave', '.post-upvote', function(event) {
+    $target = $(event.target);
+    $target.find('.post-upvote-button').css("color", "#515151")
+  })
+
 });
