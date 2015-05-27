@@ -23,7 +23,6 @@ $(document).ready(function() {
   })
 
   $('.container').on('click', '.post-upvote-button', function(event) {
-
     event.preventDefault();
     event.stopPropagation();
 
@@ -36,6 +35,16 @@ $(document).ready(function() {
       type: 'PUT'
     }).then(function(response) {
       $voteDestination.html(response);
+    })
+  })
+
+  $('#betafeed-header').on('click', function(event) {
+    event.preventDefault();
+
+    $.get("/", function(response) {
+      $('.post-listings-container').html(response);
+      $('.post-filter').removeClass('active');
+      $('.all-filter').addClass('active');
     })
   })
 
