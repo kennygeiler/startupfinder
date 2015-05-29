@@ -50,12 +50,13 @@ $(document).ready(function() {
 
   $('.container').on('mouseenter', '.post-upvote', function(event) {
     $target = $(event.target);
-    $target.find('.post-upvote-button').css("color", "#008CBA")
+    $target.closest('.post-upvote').css('cursor', 'pointer')
+    $target.closest('.post-upvote').find('.post-upvote-button').css("color", "#008CBA")
   })
 
   $('.container').on('mouseleave', '.post-upvote', function(event) {
     $target = $(event.target);
-    $target.find('.post-upvote-button').css("color", "#515151")
+    $target.closest('.post-upvote').find('.post-upvote-button').css("color", "#515151")
   })
 
 });
