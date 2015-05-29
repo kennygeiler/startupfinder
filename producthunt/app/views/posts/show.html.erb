@@ -5,12 +5,14 @@
       <%= render partial: 'feedbacks/feedback', locals: {post: @post, feedback: feedback} %>
     <% end %>
   </div>
-  <% if current_user.id == @post.user_id %>
+  <% if current_user && current_user.id == @post.user_id %>
     <div class="new-feedback">
       <%= link_to "Add new Feedback Question", new_post_feedback_path(@post), class: "new-feedback-button" %>
     </div>
     <div class="new-feedback-form">
-      <%= render partial: 'feedbacks/form', locals: {post: @post, feedback: Feedback.new} %>
+      <% if current_user %>
+        <%= render partial: 'feedbacks/form', locals: {post: @post, feedback: Feedback.new} %>
+      <% end %>
     </div>
   <% end %>
 </div>
