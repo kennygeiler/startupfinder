@@ -28,14 +28,24 @@ $(document).ready(function() {
 
     var $target = $(event.target);
     var path = $target.closest('.post-upvote').children('a').attr('href');
-    var $voteDestination = $target.closest('.post-upvote').children('.post-score')
+    var $voteDestination = $target.closest('.post-upvote').children('.post-score');
+    var voteDecision = !$target.closest('.post-upvote').find('i').hasClass('existing-vote');
+    var pathArray = path.split('/');
 
     $.ajax({
       url: path,
       type: 'PUT'
     }).then(function(response) {
       $voteDestination.html(response);
-      $target.closest('.post-upvote').find('.post-upvote-button').addClass('existing-vote');
+      if (voteDecision) {
+        $target.closest('.post-upvote').find('.post-upvote-button').addClass('existing-vote');
+        pathArray[3] = "dislike";
+        $target.closest('.post-upvote').children('a')[0].setAttribute('href', pathArray.join('/'));
+      } else {
+        $target.closest('.post-upvote').find('.post-upvote-button').removeClass('existing-vote');
+        pathArray[3] = "like";
+        $target.closest('.post-upvote').children('a')[0].setAttribute('href', pathArray.join('/'));
+      }
     })
   })
 

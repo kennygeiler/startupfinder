@@ -80,6 +80,30 @@ class PostsController < ApplicationController
     end
   end
 
+  def downvote
+    @post = Post.find(params[:id])
+    if current_user.voted_for? @post
+      current_user.votes.find_by(votable: @post).destroy
+      if current_user.id == @post.user_id
+        @post.user.increase_karma(-10)
+      else
+        @post.user.increase_karma(-1)
+      end
+
+      if request.xhr?
+        render partial: 'vote_count', locals: {post: @post}
+      else
+        redirect_to posts_path
+      end
+    else
+      if request.xhr?
+        render partial: 'vote_count', locals: {post: @post}
+      else
+        redirect_to posts_path
+      end
+    end
+  end
+
   def edit
     if current_user.admin
       @post = Post.find(params[:id])
