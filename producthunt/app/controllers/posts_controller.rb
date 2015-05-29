@@ -54,7 +54,7 @@ class PostsController < ApplicationController
 
   def upvote
     @post = Post.find(params[:id])
-    if current_user.voted_for? @post
+    if current_user && current_user.voted_for?(@post)
       if request.xhr?
         render partial: 'vote_count', locals: {post: @post}
       else

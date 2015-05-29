@@ -24,6 +24,8 @@
     </div>
   </div>
   <div class="new-comment-form medium-offset-1 medium-11 columns">
-    <%= render partial: 'comments/form', locals: {post: post, feedback: feedback, comment: Comment.new} %>
+    <% if current_user %>
+      <%= render partial: 'comments/form', locals: {post: post, feedback: feedback, comment: Comment.new} %>
+    <% end %>
   </div>
 </div>
