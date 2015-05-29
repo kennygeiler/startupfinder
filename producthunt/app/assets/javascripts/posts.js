@@ -35,6 +35,7 @@ $(document).ready(function() {
       type: 'PUT'
     }).then(function(response) {
       $voteDestination.html(response);
+      $target.closest('.post-upvote').find('.post-upvote-button').addClass('existing-vote');
     })
   })
 
@@ -51,12 +52,12 @@ $(document).ready(function() {
   $('.container').on('mouseenter', '.post-upvote', function(event) {
     $target = $(event.target);
     $target.closest('.post-upvote').css('cursor', 'pointer')
-    $target.closest('.post-upvote').find('.post-upvote-button').css("color", "#008CBA")
+    $target.closest('.post-upvote').find('.post-upvote-button').toggleClass('active-vote')
   })
 
   $('.container').on('mouseleave', '.post-upvote', function(event) {
     $target = $(event.target);
-    $target.closest('.post-upvote').find('.post-upvote-button').css("color", "#515151")
+    $target.closest('.post-upvote').find('.post-upvote-button').toggleClass('active-vote')
   })
 
 });
