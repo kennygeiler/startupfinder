@@ -22,8 +22,7 @@ $(document).ready(function() {
     });
   })
 
-  $('.container').on('click', '.post-upvote-button', function(event) {
-
+  $('.container').on('click', '.post-upvote', function(event) {
     event.preventDefault();
     event.stopPropagation();
 
@@ -36,7 +35,29 @@ $(document).ready(function() {
       type: 'PUT'
     }).then(function(response) {
       $voteDestination.html(response);
+      $target.closest('.post-upvote').find('.post-upvote-button').addClass('existing-vote');
     })
+  })
+
+  $('#betafeed-header').on('click', function(event) {
+    event.preventDefault();
+
+    $.get("/", function(response) {
+      $('.post-listings-container').html(response);
+      $('.post-filter').removeClass('active');
+      $('.all-filter').addClass('active');
+    })
+  })
+
+  $('.container').on('mouseenter', '.post-upvote', function(event) {
+    $target = $(event.target);
+    $target.closest('.post-upvote').css('cursor', 'pointer')
+    $target.closest('.post-upvote').find('.post-upvote-button').toggleClass('active-vote')
+  })
+
+  $('.container').on('mouseleave', '.post-upvote', function(event) {
+    $target = $(event.target);
+    $target.closest('.post-upvote').find('.post-upvote-button').toggleClass('active-vote')
   })
 
 });
