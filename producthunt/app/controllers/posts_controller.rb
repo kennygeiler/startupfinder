@@ -53,16 +53,20 @@ class PostsController < ApplicationController
   end
 
   def upvote
-    @post = Post.find(params[:id])
-    @post.upvote_by current_user
-    if current_user.id == @post.user_id
-      @post.user.increase_karma(10)
-    else
-      @post.user.increase_karma(1)
-    end
+    if current_user
+      @post = Post.find(params[:id])
+      @post.upvote_by current_user
+      if current_user.id == @post.user_id
+        @post.user.increase_karma(10)
+      else
+        @post.user.increase_karma(1)
+      end
 
-    if request.xhr?
-      render partial: 'vote_count', locals: {post: @post}
+      if request.xhr?
+        render partial: 'vote_count', locals: {post: @post}
+      else
+        redirect_to posts_path
+      end
     else
       redirect_to posts_path
     end
