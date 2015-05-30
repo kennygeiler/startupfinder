@@ -1,7 +1,7 @@
 <div class="single-line-post row" data-href="<%= post_path(post) %>">
   <div class="medium-1 columns vote-container">
     <div class="text-center post-upvote">
-      <% if current_user && current_user.votes.find_by(votable: post) %>
+      <% if current_user && current_user.votes.find_by(votable: post, vote_flag: true) %>
         <%= link_to '<i class="fa fa-arrow-up post-upvote-button existing-vote"></i>'.html_safe, dislike_post_path(post), method: :put %>
       <% else %>
         <%= link_to '<i class="fa fa-arrow-up post-upvote-button"></i>'.html_safe, like_post_path(post), method: :put %>

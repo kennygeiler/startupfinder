@@ -18,28 +18,28 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.order(:cached_votes_total => :desc)
+    @posts = Post.order(cached_votes_up: :desc)
     if request.xhr?
       render partial: 'post_listings', locals: {posts: @posts}, layout: false
     end
   end
 
   def today
-    @posts = Post.today.order(:cached_votes_total => :desc)
+    @posts = Post.today.order(cached_votes_up: :desc)
     if request.xhr?
       render partial: 'post_listings', locals: {posts: @posts}, layout: false
     end
   end
 
   def week
-    @posts = Post.week.order(:cached_votes_total => :desc)
+    @posts = Post.week.order(cached_votes_up: :desc)
     if request.xhr?
       render partial: 'post_listings', locals: {posts: @posts}, layout: false
     end
   end
 
   def month
-    @posts = Post.month.order(:cached_votes_total => :desc)
+    @posts = Post.month.order(cached_votes_up: :desc)
     if request.xhr?
       render partial: 'post_listings', locals: {posts: @posts}, layout: false
     end
@@ -53,54 +53,38 @@ class PostsController < ApplicationController
   end
 
   def upvote
-    @post = Post.find(params[:id])
-    if current_user && current_user.voted_for?(@post)
+    if current_user
+      @post = Post.find(params[:id])
+      @post.upvote_by current_user
+      if current_user.id == @post.user_id
+        @post.user.increase_karma(10)
+      else
+        @post.user.increase_karma(1)
+      end
+
       if request.xhr?
         render partial: 'vote_count', locals: {post: @post}
       else
         redirect_to posts_path
       end
     else
-      @post.upvote_by current_user
-      if current_user.id == @post.user_id
-        @post.user.increase_karma(10)
-        if request.xhr?
-          render partial: 'vote_count', locals: {post: @post}
-        else
-          redirect_to posts_path
-        end
-      else
-        @post.user.increase_karma(1)
-        if request.xhr?
-          render partial: 'vote_count', locals: {post: @post}
-        else
-          redirect_to posts_path
-        end
-      end
+      redirect_to posts_path
     end
   end
 
   def downvote
     @post = Post.find(params[:id])
-    if current_user.voted_for? @post
-      current_user.votes.find_by(votable: @post).destroy
-      if current_user.id == @post.user_id
-        @post.user.increase_karma(-10)
-      else
-        @post.user.increase_karma(-1)
-      end
-
-      if request.xhr?
-        render partial: 'vote_count', locals: {post: @post}
-      else
-        redirect_to posts_path
-      end
+    @post.downvote_by current_user
+    if current_user.id == @post.user_id
+      @post.user.increase_karma(-10)
     else
-      if request.xhr?
-        render partial: 'vote_count', locals: {post: @post}
-      else
-        redirect_to posts_path
-      end
+      @post.user.increase_karma(-1)
+    end
+
+    if request.xhr?
+      render partial: 'vote_count', locals: {post: @post}
+    else
+      redirect_to posts_path
     end
   end
 
