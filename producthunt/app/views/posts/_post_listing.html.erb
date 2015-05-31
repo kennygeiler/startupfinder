@@ -1,0 +1,31 @@
+<div class="single-line-post row" data-href="<%= post_path(post) %>">
+  <div class="medium-1 columns vote-container">
+    <div class="text-center post-upvote">
+      <% if current_user && current_user.votes.find_by(votable: post, vote_flag: true) %>
+        <%= link_to '<i class="fa fa-arrow-up post-upvote-button existing-vote"></i>'.html_safe, dislike_post_path(post), method: :put %>
+      <% else %>
+        <%= link_to '<i class="fa fa-arrow-up post-upvote-button"></i>'.html_safe, like_post_path(post), method: :put %>
+      <% end %>
+      <div class="post-score text-center"><%= post.score %></div>
+    </div>
+  </div>
+  <div class="medium-11 columns">
+    <div class="post-title-container row">
+      <div class="medium-12 columns">
+        <span class="post-title"><%= link_to(post.title, post.link) %></span>
+        <span>
+          <% if post.hiring %>
+            <span data-tooltip class="has-tip tip-right" title="Contact Email: <%= post.contact_email %>"><i class="fa fa-usd" style="color:green"></i></span>
+          <% else %>
+            <i class="fa fa-usd" style="color:grey"></i>
+          <% end %>
+        </span>
+      </div>
+    </div>
+    <div class="post-info row">
+      <div class="medium-10 columns post-description"><%= post.description %></div>
+      <div class="medium-2 columns picture"><%= image_tag(post.user.image) %></div>
+    </div>
+  </div>
+</div>
+<div id="post-modal" class="reveal-modal" data-reveal aria-hidden="true"></div>

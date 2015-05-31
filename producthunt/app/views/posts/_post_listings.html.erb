@@ -1,43 +1,10 @@
-<div class="filter-links filter">
-  <%= link_to "ALL", posts_path, class: "post-filter all-filter" %>
-  <%= link_to "TODAY", posts_today_path, class: "post-filter today-filter" %>
-  <%= link_to "WEEK", posts_week_path, class: "post-filter week-filter" %>
-  <%= link_to "MONTH", posts_month_path, class: "post-filter month-filter" %>
-</div>
 <div class="posts-container row">
   <div class="staff-picks-container medium-6 columns">
     <div class="root-header">Our Favorites</div>
     <div class="staff-picks-listing scrolling-listing">
       <% posts.each do |post| %>
         <% if post.staff_pick && post.accepted %>
-          <div class="single-line-post row" data-href="<%= post_path(post) %>">
-            <div class="medium-1 columns vote-container">
-              <div class="row">
-                <div class="medium-12 columns text-center"><%= link_to '<i class="fa fa-arrow-up"></i>'.html_safe, like_post_path(post), method: :put %></div>
-              </div>
-              <div class="row">
-                <div class="medium-12 columns post-score text-center"><%= post.score %></div>
-              </div>
-            </div>
-            <div class="medium-11 columns">
-              <div class="post-title-container row">
-                <div class="medium-12 columns">
-                  <span class="post-title"><%= link_to(post.title, post.link) %></span>
-                  <span>
-                    <% if post.hiring %>
-                      <i class="fa fa-usd" style="color:green"></i>
-                    <% else %>
-                      <i class="fa fa-usd" style="color:grey"></i>
-                    <% end %>
-                  </span>
-                </div>
-              </div>
-              <div class="post-info row">
-                <div class="medium-10 columns post-description"><%= post.description %></div>
-                <div class="medium-2 columns picture"><%= image_tag(post.user.image) %></div>
-              </div>
-            </div>
-          </div>
+          <%= render partial: 'post_listing', locals: {post: post} %>
         <% end %>
       <% end %>
     </div>
@@ -47,34 +14,7 @@
     <div class="regular-picks-listing scrolling-listing">
       <% posts.each do |post| %>
         <% if !post.staff_pick && post.accepted %>
-          <div class="single-line-post row" data-href="<%= post_path(post) %>">
-            <div class="medium-1 columns vote-container">
-              <div class="row">
-                <div class="medium-12 columns text-center"><%= link_to '<i class="fa fa-arrow-up"></i>'.html_safe, like_post_path(post), method: :put %></div>
-              </div>
-              <div class="row">
-                <div class="medium-12 columns post-score text-center"><%= post.score %></div>
-              </div>
-            </div>
-            <div class="medium-11 columns">
-              <div class="post-title-container row">
-                <div class="medium-12 columns">
-                  <span class="post-title"><%= link_to(post.title, post.link) %></span>
-                  <span>
-                    <% if post.hiring %>
-                      <i class="fa fa-usd" style="color:green"></i>
-                    <% else %>
-                      <i class="fa fa-usd" style="color:grey"></i>
-                    <% end %>
-                  </span>
-                </div>
-              </div>
-              <div class="post-info row">
-                <div class="medium-10 columns post-description"><%= post.description %></div>
-                <div class="medium-2 columns picture"><%= image_tag(post.user.image) %></div>
-              </div>
-            </div>
-          </div>
+          <%= render partial: 'post_listing', locals: {post: post} %>
         <% end %>
       <% end %>
     </div>

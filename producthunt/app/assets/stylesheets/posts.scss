@@ -52,7 +52,7 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 }
 
 .filter a {
-  padding: 5px;
+  margin: 5px;
   color: #727272;
   font-family: 'Exo', sans-serif;
   font-weight: 400;
@@ -177,4 +177,21 @@ nav .top-bar-section li:not(.has-form) a:not(.button) {
 .post-description {
   font-size: 14px;
   padding-bottom: 1px;
+}
+
+.filter-links .active {
+  font-weight: bold;
+  border-bottom: 3px solid #727272;
+}
+
+.post-upvote-button {
+  color: #515151;
+}
+
+.active-vote {
+  color: #008CBA;
+}
+
+.existing-vote {
+  color: #008CBA;
 }
